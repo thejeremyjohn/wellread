@@ -1,35 +1,37 @@
-<!-- -Books
-  - belongs to author
--Bookshelves
-  - belongs to user (reader)
--Reviews
-  - belongs to reader
--Read Status (will read, have read, etc.)
-  -
--Bonus: Search across multiple models
-  -
--Bonus: Tags
-  -
- -->
-
-# schema
-
 + Books
-  - id
-  - title
-  - author_id
-  - read_status
+  - `id`
+  - `author`
+  - `title`
+  - `description`
 
-<!-- + Read Statuses
-  - id
-  - status -->
++ Users
+  - `id`
+  - `username`
+  - `email`
+  - `img_url`
+  - `password_digest`
+  - `session_token`
+  - `created_at`
+  - `updated_at`
 
-+ Bookshelves
++ Read Statuses
+  - `id`
+  - `status`
+  - `user_id`
+  - `book_id`
+
++ Reviews
+  - `id`
+  - `rating`
+  - `body`
+  - `user_id`
+  - `book_id`
+  - `created_at`
+  - `updated_at`
+
+<!-- + Bookshelves
   - id
   - user_id
   - read_status_id
-
-+ Reviews
-  - id
-  - user_id
-  - body
+  - created_at
+  - updated_at -->
