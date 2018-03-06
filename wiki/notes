@@ -7,3 +7,9 @@ take out book_id from review state
 ui includes modals like dropdown menues
 
 session: current_user {id}
+
+# rename tabs !!!!
+PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
+PROMPT_COMMAND='echo -ne "\033]0;console\a"'
+PROMPT_COMMAND='echo -ne "\033]0;server\a"'
+PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
