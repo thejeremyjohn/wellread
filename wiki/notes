@@ -1,0 +1,9 @@
+bookshelf table
+
+joins table bookshelf membership
+
+take out book_id from review state
+
+ui includes modals like dropdown menues
+
+session: current_user {id}
