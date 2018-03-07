@@ -21,9 +21,9 @@ export const signup = (user) => {
   };
 };
 
-export const login = (user) => {
+export const signin = (user) => {
   return (dispatch) => {
-    return SessionAPIUtil.login(user).then(resUser => {
+    return SessionAPIUtil.signin(user).then(resUser => {
       return dispatch(receiveCurrentUser(resUser));
     });
   };

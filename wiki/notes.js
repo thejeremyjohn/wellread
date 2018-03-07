@@ -22,7 +22,7 @@ $.ajax({
   data: {user: {username: 'user2', password: 'password'}}
 });
 
-// // login
+// // signin
 $.ajax({
   method: 'POST',
   url: '/api/session',
@@ -34,3 +34,15 @@ $.ajax({
   method: 'DELETE',
   url: '/api/session',
 });
+
+import {
+  HashRouter, withRouter, Link, Route, Switch
+} from 'react-router-dom';
+
+import {
+  combineReducers, createStore, applyMiddleware
+} from 'redux';
+
+import { Provider, connect } from 'react-redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
