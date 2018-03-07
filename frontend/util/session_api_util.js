@@ -1,20 +1,20 @@
-const signup = (user) => {
+export const signup = (user) => {
   return $.ajax({
-    method: 'GET',
+    method: 'POST',
     url: '/api/users',
     data: { user }
   });
 };
 
-const login = (user) => {
+export const login = (user) => {
   return $.ajax({
-    method: 'GET',
+    method: 'POST',
     url: '/api/session',
     data: { user }
   });
 };
 
-const logout = () => {
+export const logout = () => {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session',

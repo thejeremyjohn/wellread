@@ -13,3 +13,24 @@ PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
 PROMPT_COMMAND='echo -ne "\033]0;console\a"'
 PROMPT_COMMAND='echo -ne "\033]0;server\a"'
 PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
+
+
+// // signup
+$.ajax({
+  method: 'POST',
+  url: 'api/users',
+  data: {user: {username: 'user1', password: 'password'}}
+});
+
+// // login
+$.ajax({
+  method: 'POST',
+  url: '/api/session',
+  data: {user: {username: 'user1', password: 'password'}}
+});
+
+// // logout
+$.ajax({
+  method: 'DELETE',
+  url: '/api/session',
+});
