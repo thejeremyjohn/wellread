@@ -19,14 +19,14 @@ PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
 $.ajax({
   method: 'POST',
   url: 'api/users',
-  data: {user: {username: 'user1', password: 'password'}}
+  data: {user: {username: 'user2', password: 'password'}}
 });
 
 // // login
 $.ajax({
   method: 'POST',
   url: '/api/session',
-  data: {user: {username: 'user1', password: 'password'}}
+  data: {user: {username: 'user2', password: 'password'}}
 });
 
 // // logout
