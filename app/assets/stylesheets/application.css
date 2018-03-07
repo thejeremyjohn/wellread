@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ /* .greeting-container > p {
+   font-size: 50px;
+   color: green
+ } */
+ * {
+   background-color: beige;
+   font-family: roboto;
+ }
+
+.session-nav > * {
+  text-decoration: none
+}
