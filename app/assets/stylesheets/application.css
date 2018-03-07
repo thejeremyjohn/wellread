@@ -23,6 +23,10 @@
    font-family: roboto;
  }
 
+ input[type='text'], input[type='password'], textarea {
+   background-color: white;
+ }
+
 .session-nav > * {
   text-decoration: none
 }
