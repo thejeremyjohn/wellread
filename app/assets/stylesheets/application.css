@@ -14,6 +14,53 @@
  *= require_self
  */
 
+/* BEGIN CSS RESET */
+
+/* html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+} */
+
+/* END OF CSS RESET */
+
  ::-webkit-scrollbar {
    width: 12px;
  }
@@ -30,16 +77,51 @@
 
 body {
   font-family: 'Abel', sans-serif;
-  background-color: beige;
+  background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
+  background-size: cover;
+  /* background-image: url('http://www.curtislibrary.com/wp-content/uploads/2013/09/canvas-background-ccs.jpg'); */
+  /* background-color: beige; */
+  /* margin: 0 auto; */
+}
+
+.logo {
+  /* font-family: Aovel Sans; */
+  font-family: arial;
 }
 
  * {
    font-family: roboto;
  }
 
- input[type='text'], input[type='password'], textarea {
+ /* input[type='text'], input[type='password'], textarea {
    background-color: white;
+ } */
+
+ .content {
+   /* margin: auto */
+   /* align-items: center; */
+   /* justify-content: center; */
+   /* flex-direction: column; */
  }
+
+.auth:not(label) {
+  /* margin: 0 auto; */
+  display: inline-block;
+  text-align: center;
+  /* display: block; */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  /* width: auto; */
+  padding: 30px;
+  /* align-content: center; */
+  /* justify-content: center; */
+  border-radius: 5px;
+  border: 1px solid rosybrown;
+  /* margin: 0 auto; */
+  /* display: flex; */
+  /* flex-direction: column; */
+}
 
 .session-nav > * {
   text-decoration: none

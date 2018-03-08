@@ -13,28 +13,26 @@ import Demo from './demo';
 
 
 const App = () => (
-  <div>
+  <div className='content'>
 
     <header>
-      <h1>wellread</h1>
+      <h1 className='logo' >wellread</h1>
     </header>
-    <Demo />
 
-    <Switch>
-
-      <AuthRoute
-        path="/signin"
-        component={SessionFormContainer}
-        />
-
-      <AuthRoute
-        path="/signup"
-        component={SessionFormContainer}
-        />
-
-      <GreetingContainer />
-
-    </Switch>
+    <div className='auth'>
+      <Demo />
+      <Switch>
+        <AuthRoute
+          path="/signin"
+          component={SessionFormContainer}
+          />
+        <AuthRoute
+          path="/signup"
+          component={SessionFormContainer}
+          />
+        <GreetingContainer />
+      </Switch>
+    </div>
 
   </div>
 );
