@@ -78,7 +78,9 @@ input[type="submit"] {
 body {
   font-family: 'Abel', sans-serif;
   background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
-  background-size: cover;
+  background-size: 1920px 1080px;
+  /* background-size: cover; */
+  /* background-size: 100%; */
   /* background-image: url('http://www.curtislibrary.com/wp-content/uploads/2013/09/canvas-background-ccs.jpg'); */
   /* background-color: beige; */
   /* margin: 0 auto; */
