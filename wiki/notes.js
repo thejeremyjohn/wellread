@@ -1,14 +1,23 @@
+books#index
+book errors and errors_reducer
+
+pull book id from location w/in msp?
+
 bookshelf table
-
 joins table bookshelf membership
-
 take out book_id from review state
-
 ui includes modals like dropdown menues
-
 session: current_user {id}
 
-seed with at least guest::password
+checklist:
+  model
+  controller
+  api_util
+  actions
+  reducers
+    whatever
+    errors
+
 
 # rename tabs !!!!
 PROMPT_COMMAND='echo -ne "\033]0;routes\a"'

@@ -4,10 +4,12 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // import * as SessionAPIUtil from './util/session_api_util';
-import * as actions from './actions/session_actions';
+// import * as BookAPIUtil from './util/book_api_util';
+//
+// import * as sessionActions from './actions/session_actions';
+// import * as bookActions from './actions/book_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // const store = configureStore();
   const root = document.getElementById('root');
 
   let store;
@@ -18,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  // store = configureStore();
   // window.signup = SessionAPIUtil.signup;
   // window.signin = SessionAPIUtil.signin;
   // window.logout = SessionAPIUtil.logout;
 
-  // window.actions = actions;
+  // window.sessionActions = sessionActions;
+  // window.bookActions = bookActions;
   // window.store = store;
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;

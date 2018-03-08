@@ -33,7 +33,7 @@ class SessionForm extends React.Component {
           Not a member?
           <Link
             style={{textDecoration: 'none'}}
-            to="Sign Up"> Sign up
+            to="/signup"> Sign up
           </Link>
         </div>
       );
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
           Already a member?
           <Link
             style={{textDecoration: 'none'}}
-            to="Sign In"> Sign in
+            to="/signin"> Sign in
           </Link>
         </div>
       );

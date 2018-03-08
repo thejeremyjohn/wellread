@@ -4,6 +4,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import Demo from './demo';
+import Book from './books/book';
 
 import Header from './header/header';
 
@@ -31,5 +32,6 @@ const App = () => (
 
   </div>
 );
+// <Book />
 
 export default App;
