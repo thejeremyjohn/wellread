@@ -50,9 +50,9 @@ class SessionForm extends React.Component {
 
   sessionFormHeader() {
     if (this.props.formType === '/signin') {
-      return <h2>Sign in to wellread</h2>;
+      return <h2 className='sfh'>Sign in to wellread</h2>;
     } else {
-      return <h2>Sign up for wellread</h2>;
+      return <h2 className='sfh'>Sign up for wellread</h2>;
     }
   }
 

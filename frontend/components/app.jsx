@@ -5,33 +5,28 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import Demo from './demo';
 
-// demoSignin({ store }) {
-//   const demoUser = { username: 'guest', password: 'password'};
-//   this.props.processForm(demoUser);
-// }
-// <button onClick={this.demoSignin()} />
-
+import Header from './header/header';
 
 const App = () => (
-  <div className='content'>
+  <div>
 
-    <header>
-      <h1 className='logo' >wellread</h1>
-    </header>
+    <Header />
 
-    <div className='auth'>
-      <Demo />
-      <Switch>
-        <AuthRoute
-          path="/signin"
-          component={SessionFormContainer}
-          />
-        <AuthRoute
-          path="/signup"
-          component={SessionFormContainer}
-          />
-        <GreetingContainer />
-      </Switch>
+    <div className='auth-outer'>
+      <div className='auth-inner'>
+        <Switch>
+          <AuthRoute
+            path="/signin"
+            component={SessionFormContainer}
+            />
+          <AuthRoute
+            path="/signup"
+            component={SessionFormContainer}
+            />
+          <GreetingContainer />
+        </Switch>
+        <Demo />
+      </div>
     </div>
 
   </div>

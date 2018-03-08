@@ -10,9 +10,6 @@ session: current_user {id}
 
 seed with at least guest::password
 
-- redirecting to /login after being logged in should change the url to "https://wellread0.herokuapp.com/#/"
-- css
-
 # rename tabs !!!!
 PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
 PROMPT_COMMAND='echo -ne "\033]0;console\a"'
