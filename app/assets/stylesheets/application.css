@@ -14,18 +14,33 @@
  *= require_self
  */
 
- /* .greeting-container > p {
-   font-size: 50px;
-   color: green
- } */
+ ::-webkit-scrollbar {
+   width: 12px;
+ }
+
+ ::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   border-radius: 10px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+   border-radius: 10px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+ }
+
+body {
+  font-family: 'Abel', sans-serif;
+  background-color: beige;
+}
+
  * {
-   background-color: beige;
    font-family: roboto;
  }
 
  input[type='text'], input[type='password'], textarea {
    background-color: white;
  }
+
 
 .session-nav > * {
   text-decoration: none

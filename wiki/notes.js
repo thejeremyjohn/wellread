@@ -8,6 +8,11 @@ ui includes modals like dropdown menues
 
 session: current_user {id}
 
+- signing up should redirect to home page
+- render session errors
+- redirecting to /login after being logged in should change the url to "https://wellread0.herokuapp.com/#/"
+- css
+
 # rename tabs !!!!
 PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
 PROMPT_COMMAND='echo -ne "\033]0;console\a"'
