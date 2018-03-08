@@ -10,15 +10,15 @@ class Header extends React.Component {
 
   render() {
     return (
-      <span className='header'>
+      <div className='header'>
         <Link className='logo' to='/' read='read'>well</Link>
         <div className='nav-bar'>
-          <span>Home</span>
-          <span>My Books</span>
-          <span>Browse</span>
-          <span>Community</span>
+          <div>Home</div>
+          <div>My Books</div>
+          <div>Browse</div>
+          <div>Community</div>
         </div>
-      </span>
+      </div>
       );
   }
 

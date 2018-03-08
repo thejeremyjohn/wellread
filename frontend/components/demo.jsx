@@ -18,9 +18,17 @@ const mdp = (dispatch) => {
 class Demo extends React.Component {
   render() {
     const { loggedIn, signIn, demo } = this.props;
-    return (
-      !loggedIn ? <button onClick={() => signIn(demo)}>demo</button> : null
-    );
+    if (!loggedIn) {
+      return (
+        <button
+          className='demo button'
+          onClick={() => signIn(demo)}
+          >DEMO
+        </button>
+      );
+    } else {
+      return null;
+    }
   }
 }
 

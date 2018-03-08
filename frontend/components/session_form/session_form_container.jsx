@@ -10,11 +10,13 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch, ownProps) => {
-  const formType = ownProps.location.pathname;
+  const formType =
+    ownProps.location.pathname === '/signin' ?
+    'Sign In' : 'Sign Up';
   return {
     processForm: (user) => (
       dispatch(
-        formType==='/signin' ? signin(user) : signup(user)
+        formType==='Sign In' ? signin(user) : signup(user)
       )
     ),
     formType

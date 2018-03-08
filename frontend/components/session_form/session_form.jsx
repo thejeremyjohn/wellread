@@ -28,28 +28,28 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    if (this.props.formType === '/signin') return (
-        <div>
+    if (this.props.formType === 'Sign In') return (
+        <div className='signin-option'>
           Not a member?
           <Link
             style={{textDecoration: 'none'}}
-            to="/signup"> Sign up
+            to="Sign Up"> Sign up
           </Link>
         </div>
       );
-    if (this.props.formType === '/signup') return (
-        <div>
+    if (this.props.formType === 'Sign Up') return (
+      <div className='signin-option'>
           Already a member?
           <Link
             style={{textDecoration: 'none'}}
-            to="/signin"> Sign in
+            to="Sign In"> Sign in
           </Link>
         </div>
       );
   }
 
   sessionFormHeader() {
-    if (this.props.formType === '/signin') {
+    if (this.props.formType === 'Sign In') {
       return <h2 className='sfh'>Sign in to wellread</h2>;
     } else {
       return <h2 className='sfh'>Sign up for wellread</h2>;
@@ -75,13 +75,16 @@ class SessionForm extends React.Component {
     return (
       <div>
         {this.sessionFormHeader()}
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <label>Username
+          <label>Name
       <br/>
             <input
               type='text'
               value={this.state.username}
               onChange={this.update('username')}
+              placeholder='Name'
+              autoFocus
               />
           </label>
       <br/>
@@ -91,14 +94,16 @@ class SessionForm extends React.Component {
               type='password'
               value={this.state.password}
               onChange={this.update('password')}
+              placeholder='Password'
               />
       <br/>
-            <input type='submit' value='submit'/>
+            <div className='auth-submit'>
+              <input className='button' type='submit' value='submit'/>
+              {this.navLink()}
+            </div>
           </label>
       <br/>
         </form>
-        {this.renderErrors()}
-        {this.navLink()}
       </div>
      );
    }

@@ -14,6 +14,7 @@ const App = () => (
 
     <div className='auth-outer'>
       <div className='auth-inner'>
+        <Demo />
         <Switch>
           <AuthRoute
             path="/signin"
@@ -25,7 +26,6 @@ const App = () => (
             />
           <GreetingContainer />
         </Switch>
-        <Demo />
       </div>
     </div>
 
