@@ -41,7 +41,11 @@ body {
    background-color: white;
  }
 
-
 .session-nav > * {
   text-decoration: none
+}
+
+.errors-list > li {
+  list-style: none;
+  color: red;
 }

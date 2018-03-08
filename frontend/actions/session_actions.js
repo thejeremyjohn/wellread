@@ -15,24 +15,27 @@ export const receiveErrors = errors => ({
 
 export const signup = (user) => {
   return (dispatch) => {
-    return SessionAPIUtil.signup(user).then(resUser => {
-      return dispatch(receiveCurrentUser(resUser));
-    });
+    return SessionAPIUtil.signup(user).then(
+      (resUser) => dispatch(receiveCurrentUser(resUser)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
+    );
   };
 };
 
 export const signin = (user) => {
   return (dispatch) => {
-    return SessionAPIUtil.signin(user).then(resUser => {
-      return dispatch(receiveCurrentUser(resUser));
-    });
+    return SessionAPIUtil.signin(user).then(
+      (resUser) => dispatch(receiveCurrentUser(resUser)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
+    );
   };
 };
 
 export const logout = () => {
   return (dispatch) => {
-    return SessionAPIUtil.logout().then(user => {
-      return dispatch(receiveCurrentUser(null));
-    });
+    return SessionAPIUtil.logout().then(
+      (resUser) => dispatch(receiveCurrentUser(null)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
+    );
   };
 };

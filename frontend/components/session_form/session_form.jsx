@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
     let errors = this.props.errors;
     if (errors) {
       return(
-        <ul>
+        <ul className='errors-list'>
           {errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -92,9 +92,7 @@ class SessionForm extends React.Component {
             <input type='submit' value='submit'/>
           </label>
         </form>
-        <ul>
-          {this.renderErrors()}
-        </ul>
+        {this.renderErrors()}
         {this.navLink()}
       </div>
      );
