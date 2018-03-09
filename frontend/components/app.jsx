@@ -18,26 +18,29 @@ const App = () => (
       <div className='content-left'></div>
       <div className='content-middle'>
 
-        <Demo />
-        <Switch>
-          <AuthRoute
-            path="/signin"
-            component={SessionFormContainer}
-            />
-          <AuthRoute
-            path="/signup"
-            component={SessionFormContainer}
-            />
-          <GreetingContainer />
-        </Switch>
+        <section className='auth-session'>
+          <Demo />
+          <Switch>
+            <AuthRoute
+              path="/signin"
+              component={SessionFormContainer}
+              />
+            <AuthRoute
+              path="/signup"
+              component={SessionFormContainer}
+              />
+            <GreetingContainer />
+          </Switch>
+        </section>
+
+        <ProtectedRoute path='/books' exact component={BookIndexContainer} />
+        <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 
       </div>
       <div className='content-right'></div>
     </div>
 
 
-    <ProtectedRoute path='/books' exact component={BookIndexContainer} />
-    <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
   </div>
 );
 

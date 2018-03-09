@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 User.destroy_all
 Book.destroy_all
 
@@ -24,3 +26,13 @@ Book.create(
   description: 'An aptly named book by an esteemed German politico-philosopher...',
   img_url: 'https://images.gr-assets.com/books/1420003664l/30474.jpg'
  )
+
+100.times do |i|
+  book = Faker::Book
+  Book.create(
+    title: book.title,
+    author: book.author,
+    description: Faker::Lorem.paragraph,
+    img_url: 'http://s2.quickmeme.com/img/34/347d80261f3d0cbcc382ed45c68a0bc5910e3c04280ae116f2e02d29e2bef5fc.jpg'
+  )
+end

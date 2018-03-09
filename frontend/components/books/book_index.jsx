@@ -21,9 +21,23 @@ class BookIndex extends Component {
 
     return (
       <section>
-        <ul>
-          <h1>{books}</h1>
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th className='col-cover' >cover</th>
+              <th className='col-title' >title</th>
+              <th className='col-author' >author</th>
+              <th className='col-avg-rating' >avg rating</th>
+              <th className='col-rating' >rating</th>
+              <th className='col-shelves' >shelves</th>
+              <th className='col-date-read' >date read</th>
+              <th className='col-date-added' >date added</th>        
+            </tr>
+          </thead>
+          <tbody>
+            {books}
+          </tbody>
+        </table>
       </section>
     );
   }

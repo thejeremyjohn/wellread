@@ -5,7 +5,6 @@ import {
 } from '../actions/book_actions';
 
 const booksReducer = (state={}, action) => {
-  debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BOOK:

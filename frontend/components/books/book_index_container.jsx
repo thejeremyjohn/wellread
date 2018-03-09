@@ -5,7 +5,6 @@ import { requestBooks } from '../../actions/book_actions';
 // import { selectAllBook } from '../../reducers/selectors';
 
 const msp = (state, ownProps) => {
-  debugger
   return {
     books: Object.values(state.entities.books),
     loading: state.ui.loading.indexLoading

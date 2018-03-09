@@ -64,11 +64,6 @@ button {
   -moz-appearance: none;
 }
 
-button,
-input[type="submit"] {
-  cursor: pointer;
-}
-
 END OF CSS RESET */
 
  /* ::-webkit-scrollbar {
@@ -86,18 +81,16 @@ END OF CSS RESET */
  } */
 
 body {
-  /* font-family: 'Abel', sans-serif; */
   background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
   background-size: 1920px 1080px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-size: cover; */
-  /* background-size: 100%; */
-  /* background-image: url('http://www.curtislibrary.com/wp-content/uploads/2013/09/canvas-background-ccs.jpg'); */
-  /* background-color: beige; */
-  /* margin: 0 auto; */
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
 }
 
 .header {
@@ -149,21 +142,28 @@ body {
   position: absolute;
 }
 
-/* .auth-outer { */
 .content-outer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  background-color: white;
 }
 
-/* .auth-inner { */
-.content-middle {
+.content-left {
+  width: 200px;
+  min-width: 200px;
+}
+/* .content-middle {
+
+} */
+
+.auth-session {
   /* width: 622px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgb(255,255,255);
   padding: 30px;
   border-radius: 5px;
   border: 1px solid rgb(208, 208, 200);
@@ -258,4 +258,44 @@ input[type="text"] {
   font-weight: 700;
   padding: 7px 14px;
   margin: 10px;
+}
+
+table {
+  width: 100%;
+  background-color: rgb(255,255,255);
+}
+thead {
+  border-bottom: 2px solid rgb(235, 232, 213);
+}
+th {
+  text-align: left;
+}
+
+tr {
+  display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 0 5px 0
+}
+
+td {
+  font-size: 14px;
+}
+.col-cover {width: 50px}
+.col-title {width: 182px}
+.col-author {width: 98px}
+.col-avg-rating {width: 49px}
+.col-rating {width: 92px}
+.col-shelves {width: 57px}
+.col-date-read {width: 51px}
+.col-date-added {width: 65px}
+
+.col-title a {
+  color: rgb(0, 99, 93);
+  text-decoration: none;
+  font-size: 14px;
+}
+.col-title a:hover {
+  text-decoration: underline;
 }
