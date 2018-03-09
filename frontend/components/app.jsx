@@ -2,7 +2,7 @@ import React from 'react';
 import GreetingContainer from './greeting/greeting_container';
 import SessionFormContainer from './session_form/session_form_container';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Demo from './demo';
 import BookShowContainer from './books/book_show_container';
 import BookIndexContainer from './books/book_index_container';
@@ -36,8 +36,8 @@ const App = () => (
     </div>
 
 
-    <Route path='/books' exact component={BookIndexContainer} />
-    <Route path='/books/:bookId' component={BookShowContainer} />
+    <ProtectedRoute path='/books' exact component={BookIndexContainer} />
+    <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
   </div>
 );
 
