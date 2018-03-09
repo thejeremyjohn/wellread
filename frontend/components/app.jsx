@@ -4,17 +4,20 @@ import SessionFormContainer from './session_form/session_form_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import Demo from './demo';
-import Book from './books/book';
+import BookShowContainer from './books/book_show_container';
+import BookIndexContainer from './books/book_index_container';
 
-import Header from './header/header';
+import Header from './header';
 
 const App = () => (
   <div>
 
     <Header />
 
-    <div className='auth-outer'>
-      <div className='auth-inner'>
+    <div className='content-outer'>
+      <div className='content-left'></div>
+      <div className='content-middle'>
+
         <Demo />
         <Switch>
           <AuthRoute
@@ -27,11 +30,15 @@ const App = () => (
             />
           <GreetingContainer />
         </Switch>
+
       </div>
+      <div className='content-right'></div>
     </div>
 
+
+    <Route path='/books' exact component={BookIndexContainer} />
+    <Route path='/books/:bookId' component={BookShowContainer} />
   </div>
 );
-// <Book />
 
 export default App;

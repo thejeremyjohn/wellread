@@ -110,19 +110,26 @@ body {
 .nav-bar {
   height: 100%;
   display: flex;
-  /* justify-content: flex-end; */
-  align-items: center;
+  flex-direction: row;
 }
 
 .nav-bar > * {
+  height: 100%;
   font-size: 16px;
-  padding: 0 20px;
+  padding: 15px 20px;
+  top: 20px;
+  box-sizing: border-box;
+  text-decoration: none;
 }
-.nav-bar > *:hover {
-  padding: 0 20px;
+.nav-bar > *:hover:not(.not-implemented) {
+  /* padding: 0 20px; */
   background-color: rgb(56,33,16);
   color: white;
 }
+
+/* .not-implemented {
+  color: gray;
+} */
 
 .logo {
   font-size: 30.23px;
@@ -142,14 +149,18 @@ body {
   position: absolute;
 }
 
-.auth-outer {
+/* .auth-outer { */
+.content-outer {
   display: flex;
   flex-direction: column;
 }
 
-.auth-inner {
+/* .auth-inner { */
+.content-middle {
   /* width: 622px; */
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(255,255,255,0.85);
@@ -158,14 +169,36 @@ body {
   border: 1px solid rgb(208, 208, 200);
 }
 
-.auth-submit {
-  display: inline-flex;
-  text-align: center;
+/* .session-form-outer {
+  display: flex;
+  flex-direction: column;
+} */
+.session-form-inner {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+/* .session-form-inner label input :not(button) {
+  width: 300px;
+} */
+.session-form-inner label input {
+  width: 300px;
+}
+
+.auth-submit {
+  display: flex;
+  justify-content: space-between;
+}
+
 .signin-option {
   margin-left: 24px;
   display: flex;
   align-items: center;
+}
+.signin-option-link {
+  padding-left: 15px;
+  color: rgb(0, 99, 93);
 }
 
 label {
@@ -199,7 +232,7 @@ input[type="text"] {
 .demo.button {
   background-color: rgb(78, 105, 162);
   color: white;
-  width: 100%;
+  width: 300px;
   margin-bottom: 20px;
 }
 .demo.button:hover {

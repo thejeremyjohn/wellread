@@ -4,13 +4,14 @@ import {
   RECEIVE_BOOK, RECEIVE_BOOKS
 } from '../actions/book_actions';
 
-const booksReducer = (state=[], action) => {
+const booksReducer = (state={}, action) => {
+  debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BOOK:
-      return action.book;
+      return merge({}, state, {[action.book.id]: action.book});
     case RECEIVE_BOOKS:
-      return action.books;
+      return merge({}, state, action.books);
     default:
       return state;
   }

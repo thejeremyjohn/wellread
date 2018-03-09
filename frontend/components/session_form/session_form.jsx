@@ -32,6 +32,7 @@ class SessionForm extends React.Component {
         <div className='signin-option'>
           Not a member?
           <Link
+            className='signin-option-link'
             style={{textDecoration: 'none'}}
             to="/signup"> Sign up
           </Link>
@@ -41,6 +42,7 @@ class SessionForm extends React.Component {
       <div className='signin-option'>
           Already a member?
           <Link
+            className='signin-option-link'
             style={{textDecoration: 'none'}}
             to="/signin"> Sign in
           </Link>
@@ -73,10 +75,10 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='session-form-outer'>
         {this.sessionFormHeader()}
         {this.renderErrors()}
-        <form onSubmit={this.handleSubmit}>
+        <form className='session-form-inner' onSubmit={this.handleSubmit}>
           <label>Name
       <br/>
             <input
@@ -96,12 +98,12 @@ class SessionForm extends React.Component {
               onChange={this.update('password')}
               placeholder='Password'
               />
+          </label>
       <br/>
             <div className='auth-submit'>
               <input className='button' type='submit' value='submit'/>
               {this.navLink()}
             </div>
-          </label>
       <br/>
         </form>
       </div>

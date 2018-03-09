@@ -13,10 +13,10 @@ class Header extends React.Component {
       <div className='header'>
         <Link className='logo' to='/' read='read'>well</Link>
         <div className='nav-bar'>
-          <div>Home</div>
-          <div>My Books</div>
-          <div>Browse</div>
-          <div>Community</div>
+          <Link to='/'>Home</Link>
+          <Link to='/books'>Books</Link>
+          <a className='not-implemented'>Browse</a>
+          <a className='not-implemented'>Community</a>
         </div>
       </div>
       );

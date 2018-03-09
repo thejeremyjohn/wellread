@@ -1,5 +1,6 @@
 books#index
 book errors and errors_reducer
+make formType dry-er and clean up .signin-option css
 
 pull book id from location w/in msp?
 
@@ -12,11 +13,16 @@ session: current_user {id}
 checklist:
   model
   controller
+  view
   api_util
   actions
   reducers
     whatever
     errors
+  component
+
+  // {books.map(book => <BookIndexItem key={book.id} book={book} />)}
+
 
 
 # rename tabs !!!!
