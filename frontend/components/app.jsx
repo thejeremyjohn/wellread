@@ -14,12 +14,12 @@ const App = () => (
 
     <Header />
 
-    <div className='content-main'>
-      <div className='content-outer'>
+    <div className='content-outer'>
+      <div className='content-inner'>
         <div className='content-left'></div>
         <div className='content-middle'>
 
-          <section className='auth-outer'>
+          <section className='auth'>
             <Demo />
             <Switch>
               <AuthRoute

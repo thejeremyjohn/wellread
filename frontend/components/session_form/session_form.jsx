@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className='session-form-outer'>
+      <div>
         <h2 className='sfh'>
           {this.props.authProps.headerText}
         </h2>
