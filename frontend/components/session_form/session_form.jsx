@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    // $('.content-middle').addClass('auth-inner');
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,58 +28,39 @@ class SessionForm extends React.Component {
     };
   }
 
-  navLink() {
-    if (this.props.formType === 'Sign In') return (
-        <div className='signin-option'>
-          Not a member?
-          <Link
-            className='signin-option-link'
-            style={{textDecoration: 'none'}}
-            to="/signup"> Sign up
-          </Link>
-        </div>
-      );
-    if (this.props.formType === 'Sign Up') return (
-      <div className='signin-option'>
-          Already a member?
-          <Link
-            className='signin-option-link'
-            style={{textDecoration: 'none'}}
-            to="/signin"> Sign in
-          </Link>
-        </div>
-      );
-  }
+  altAuth() {
+    const { altPath, altStr, altTitle }
+      = this.props.authProps;
 
-  sessionFormHeader() {
-    if (this.props.formType === 'Sign In') {
-      return <h2 className='sfh'>Sign in to wellread</h2>;
-    } else {
-      return <h2 className='sfh'>Sign up for wellread</h2>;
-    }
+    return (
+      <div className='alt-auth'>{altStr}
+        <Link
+          className='alt-auth-link'
+          style={{textDecoration: 'none'}}
+          to={altPath}>{altTitle}
+        </Link>
+      </div>
+    );
   }
 
   renderErrors() {
-    let errors = this.props.errors;
-    if (errors) {
-      return(
-        <ul className='errors-list'>
-          {errors.map((error, i) => (
-            <li key={`error-${i}`}>
-              {error}
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    return(
+      <ul className='errors-list'>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>{error}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
     return (
       <div className='session-form-outer'>
-        {this.sessionFormHeader()}
+        <h2 className='sfh'>
+          {this.props.authProps.headerText}
+        </h2>
         {this.renderErrors()}
-        <form className='session-form-inner' onSubmit={this.handleSubmit}>
+        <form className='auth-form' onSubmit={this.handleSubmit}>
           <label>Name
       <br/>
             <input
@@ -100,9 +82,13 @@ class SessionForm extends React.Component {
               />
           </label>
       <br/>
-            <div className='auth-submit'>
-              <input className='button' type='submit' value='submit'/>
-              {this.navLink()}
+            <div className='auth-bottom'>
+              <input
+                className='button'
+                type='submit'
+                value={this.props.authProps.buttonText}
+              />
+            {this.altAuth()}
             </div>
       <br/>
         </form>

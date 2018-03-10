@@ -12,7 +12,7 @@ export default class Greeting extends React.Component {
 
     if ( currentUser ) {
       return (
-        <div className='greeting-container'>
+        <div>
           <button
             className='button'
             onClick={ logout }

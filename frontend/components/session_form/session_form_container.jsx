@@ -10,17 +10,44 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch, ownProps) => {
-  const formType =
+  let authProps =
     ownProps.location.pathname === '/signin' ?
-    'Sign In' : 'Sign Up';
+    {
+      action: signin,
+      buttonText: 'Sign In',
+      headerText: 'Sign in to wellread',
+      altPath: '/signup',
+      altStr: 'Not a member?',
+      altTitle: 'Sign Up'
+    } :
+    {
+      action: signup,
+      buttonText: 'Sign Up',
+      headerText: 'Sign up for wellread',
+      altPath: '/signin',
+      altStr: 'Already a member?',
+      altTitle: 'Sign In'
+    };
   return {
     processForm: (user) => (
-      dispatch(
-        formType==='Sign In' ? signin(user) : signup(user)
-      )
+      dispatch(authProps.action(user))
     ),
-    formType
+    authProps
   };
 };
+
+// const mdp = (dispatch, ownProps) => {
+//   const formType =
+//     ownProps.location.pathname === '/signin' ?
+//     'Sign In' : 'Sign Up';
+//   return {
+//     processForm: (user) => (
+//       dispatch(
+//         formType==='Sign In' ? signin(user) : signup(user)
+//       )
+//     ),
+//     formType
+//   };
+// };
 
 export default connect(msp, mdp)(SessionForm);

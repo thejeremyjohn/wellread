@@ -14,30 +14,32 @@ const App = () => (
 
     <Header />
 
-    <div className='content-outer'>
-      <div className='content-left'></div>
-      <div className='content-middle'>
+    <div className='content-main'>
+      <div className='content-outer'>
+        <div className='content-left'></div>
+        <div className='content-middle'>
 
-        <section className='auth-session'>
-          <Demo />
-          <Switch>
-            <AuthRoute
-              path="/signin"
-              component={SessionFormContainer}
-              />
-            <AuthRoute
-              path="/signup"
-              component={SessionFormContainer}
-              />
-            <GreetingContainer />
-          </Switch>
-        </section>
+          <section className='auth-outer'>
+            <Demo />
+            <Switch>
+              <AuthRoute
+                path="/signin"
+                component={SessionFormContainer}
+                />
+              <AuthRoute
+                path="/signup"
+                component={SessionFormContainer}
+                />
+              <GreetingContainer />
+            </Switch>
+          </section>
 
-        <ProtectedRoute path='/books' exact component={BookIndexContainer} />
-        <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
+          <ProtectedRoute path='/books' exact component={BookIndexContainer} />
+          <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 
+        </div>
+        <div className='content-right'></div>
       </div>
-      <div className='content-right'></div>
     </div>
 
 

@@ -1,8 +1,9 @@
-books#index
+auth error should clear when switching between signin/up
 book errors and errors_reducer
 make formType dry-er and clean up .signin-option css
-
-pull book id from location w/in msp?
+jquery add/remove class based on path or component rendered
+  left/right content divs should be visible once logged in
+  mybooks sub header (todo) should be visisble on bookindex
 
 bookshelf table
 joins table bookshelf membership
@@ -26,10 +27,10 @@ checklist:
 
 
 # rename tabs !!!!
-PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
-PROMPT_COMMAND='echo -ne "\033]0;console\a"'
-PROMPT_COMMAND='echo -ne "\033]0;server\a"'
 PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
+PROMPT_COMMAND='echo -ne "\033]0;server\a"'
+PROMPT_COMMAND='echo -ne "\033]0;console\a"'
+PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
 
 
 // // signup

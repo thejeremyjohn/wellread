@@ -83,9 +83,9 @@ END OF CSS RESET */
 body {
   background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
   background-size: 1920px 1080px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
 }
 
 button,
@@ -142,73 +142,88 @@ input[type="submit"] {
   position: absolute;
 }
 
+.content-main {
+  width: 100%;
+  height: auto;
+  /* background-color: grey; */
+  display: flex;
+  justify-content: center;
+}
+
 .content-outer {
+  width: 960px;
+  /* position: relative; */
+  /* position: static; */
+  /* background-color: orange; */
   display: flex;
   flex-direction: row;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .content-left {
-  width: 200px;
   min-width: 200px;
+  /* background-color: rgba(255,255,255,0.5); */
 }
 /* .content-middle {
 
 } */
+.content-right {
+  min-width: 200px;
+  /* background-color: rgba(255,255,255,0.5); */
+}
 
-.auth-session {
+.auth-outer {
   /* width: 622px; */
+  /* width: 300px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(255,255,255);
+  /* background-color: purple; */
   padding: 30px;
   border-radius: 5px;
   border: 1px solid rgb(208, 208, 200);
 }
 
-/* .session-form-outer {
-  display: flex;
-  flex-direction: column;
-} */
-.session-form-inner {
+.auth-form {
   width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* .session-form-inner label input :not(button) {
-  width: 300px;
-} */
-.session-form-inner label input {
+.six-hundred-wide {
+  background-color: purple;
+}
+.auth-form label input {
   width: 300px;
 }
 
-.auth-submit {
+.auth-bottom {
+  width: 300px;
   display: flex;
-  justify-content: space-between;
 }
 
-.signin-option {
-  margin-left: 24px;
+.alt-auth {
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 100%
 }
-.signin-option-link {
+.alt-auth-link {
   padding-left: 15px;
   color: rgb(0, 99, 93);
 }
 
 label {
-  /* float: left; */
   text-align: left;
-  /* font-size: 12px; */
 }
 
 input[type="password"],
 input[type="text"] {
+  width: 300px;
+  box-sizing: border-box;
   /* -webkit-appearance: none;
   -moz-appearance: none; */
   padding: 10px 4px;
@@ -252,9 +267,11 @@ input[type="text"] {
 }
 
 .errors-list > li {
+  width: 444.64px;
   list-style: none;
-  /* color: red; */
+  color: rgb(51,51,51);
   background-color: rgb(255, 247, 201);
+  box-shadow: 0 1px 1px 0 rgb(208, 208, 200);
   font-weight: 700;
   padding: 7px 14px;
   margin: 10px;
