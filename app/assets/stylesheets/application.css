@@ -81,12 +81,16 @@ END OF CSS RESET */
  } */
 
 body {
-  background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
-  background-size: 1920px 1080px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+  /* background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
+  background-size: 1920px 1080px; */
+  background-image: url('https://s.gr-assets.com/assets/layout/tan-bg-texture.jpg');
+  background-size: auto;
 }
+/* footer {
+  background-image: url('https://www.goodreads.com/assets/layout/bookrow.jpg');
+  height: 100px;
+  background-repeat: repeat-x;
+} */
 
 button,
 input[type="submit"] {
@@ -214,6 +218,7 @@ input[type="submit"] {
 .alt-auth-link {
   padding-left: 15px;
   color: rgb(0, 99, 93);
+  text-decoration: 'none';
 }
 
 label {
@@ -266,15 +271,19 @@ input[type="text"] {
   text-decoration: none
 }
 
-.errors-list > li {
+.errors-list {
   width: 444.64px;
   list-style: none;
+  margin: 0 auto;
+}
+.errors-list > li {
   color: rgb(51,51,51);
   background-color: rgb(255, 247, 201);
   box-shadow: 0 1px 1px 0 rgb(208, 208, 200);
   font-weight: 700;
   padding: 7px 14px;
   margin: 10px;
+  text-align: center;
 }
 
 table {

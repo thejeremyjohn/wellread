@@ -7,8 +7,8 @@ export default (state=[], action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
-    case RECEIVE_CURRENT_USER:
-      return null;
+    // case CLEAR_SESSION_ERRORS:
+    //   return null;
     default:
       return state;
   }

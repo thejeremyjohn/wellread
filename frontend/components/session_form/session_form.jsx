@@ -16,6 +16,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  // componentWillUnmount(){
+  //   debugger
+  // }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -36,7 +40,6 @@ class SessionForm extends React.Component {
       <div className='alt-auth'>{altStr}
         <Link
           className='alt-auth-link'
-          style={{textDecoration: 'none'}}
           to={altPath}>{altTitle}
         </Link>
       </div>
