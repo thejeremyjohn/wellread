@@ -1,4 +1,5 @@
 auth error should clear when switching between signin/up
+  or at least clear on unmount
 book errors and errors_reducer
 make formType dry-er and clean up .signin-option css
 jquery add/remove class based on path or component rendered

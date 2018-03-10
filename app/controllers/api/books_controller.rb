@@ -5,6 +5,11 @@ class Api::BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find_by(id: params[:id])
+    if @book
+      @book
+    else
+      render json: ["No book matching that id"], status: 404
+    end
   end
 end

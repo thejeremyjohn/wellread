@@ -16,7 +16,7 @@ export const receiveBooks = (books) => ({
   books
 });
 
-export const receiveErrors = (errors) => ({
+const receiveErrors = (errors) => ({
   type: RECEIVE_BOOK_ERRORS,
   errors
 });
@@ -28,9 +28,8 @@ export const startLoadingBooks = () => ({
 export const requestBook = (id) => {
   return (dispatch) => {
     return BookAPIUtil.fetchBook(id).then(
-      (book) => {
-        dispatch(receiveBook(book));
-      }
+      (book) => dispatch(receiveBook(book)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
 };

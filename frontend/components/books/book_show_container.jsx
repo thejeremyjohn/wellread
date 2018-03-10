@@ -3,8 +3,10 @@ import { requestBook } from '../../actions/book_actions';
 import BookShow from './book_show';
 
 const msp = (state, ownProps) => {
+  debugger
   return {
-    book: state.entities.books[ownProps.match.params.bookId]
+    book: state.entities.books[ownProps.match.params.bookId],
+    errors: state.errors.book
   };
 };
 

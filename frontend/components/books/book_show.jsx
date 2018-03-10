@@ -12,6 +12,16 @@ class BookShow extends React.Component {
   //     this.props.fetchPost(nextProps.match.params.bookId);
   //   }
   // }
+  renderErrors() {
+    return(
+      <ul className='errors-list'>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
 
   render() {
     const { book } = this.props;
@@ -21,6 +31,7 @@ class BookShow extends React.Component {
 
     return (
       <div>
+        {this.renderErrors()}
         <h3>{book.title}</h3>
         <img src={book.img_url}></img>
         <p>{book.author}</p>
