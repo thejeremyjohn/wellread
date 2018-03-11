@@ -37,6 +37,7 @@ export const clearErrors = () => ({
 
 export const requestBook = (id) => {
   return (dispatch) => {
+    dispatch(clearErrors());
     dispatch(startLoadingBook());
     return BookAPIUtil.fetchBook(id).then(
       (book) => dispatch(receiveBook(book)),

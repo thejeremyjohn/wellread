@@ -2,7 +2,7 @@ import {
   RECEIVE_BOOK_ERRORS, CLEAR_BOOK_ERRORS
 } from '../actions/book_actions';
 
-export default (state=['placeholder-error-for-ya'], action) => {
+export default (state=[], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOOK_ERRORS:

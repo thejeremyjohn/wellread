@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
-import { requestBook, clearErrors } from '../../actions/book_actions';
+import { requestBook } from '../../actions/book_actions';
 import BookShow from './book_show';
 
 const msp = (state, ownProps) => {
-  debugger
   return {
     book: state.entities.books[ownProps.match.params.bookId],
     loading: state.ui.loading.bookShowLoading,
@@ -14,8 +13,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch, ownProps) => {
   return {
-    fetchBook: (id) => dispatch(requestBook(id)),
-    clearErrors: () => dispatch(clearErrors())
+    fetchBook: (id) => dispatch(requestBook(id))
   };
 };
 

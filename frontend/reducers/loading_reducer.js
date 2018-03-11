@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import {
-  START_LOADING_BOOK, RECEIVE_BOOK,
+  START_LOADING_BOOK, RECEIVE_BOOK, RECEIVE_BOOK_ERRORS,
   START_LOADING_BOOKS, RECEIVE_BOOKS
 } from '../actions/book_actions';
 
@@ -15,6 +15,7 @@ const loadingReducer = (state = initialState, action) => {
     case START_LOADING_BOOK:
       return merge({}, state, { bookShowLoading: true });
     case RECEIVE_BOOK:
+    case RECEIVE_BOOK_ERRORS:
       return merge({}, state, { bookShowLoading: false });
     case START_LOADING_BOOKS:
       return merge({}, state, { bookIndexLoading: true });
