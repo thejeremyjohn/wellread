@@ -7,18 +7,20 @@ class SessionForm extends React.Component {
     super(props);
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // $('.content-middle').addClass('auth-inner');
   }
 
   componentWillReceiveProps(nextProps) {
+    const { errors, location, clearErrors, history } = this.props;
+
+    if (
+      errors.length !== 0 &&
+      location.pathname !== nextProps.location.pathname
+    ) { clearErrors(); }
+
     if (nextProps.loggedIn) {
-      this.props.history.push('/');
+      history.push('/');
     }
   }
-
-  // componentWillUnmount(){
-  //   debugger
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -98,6 +100,7 @@ class SessionForm extends React.Component {
       </div>
      );
    }
+   
 }
 
 export default withRouter(SessionForm);

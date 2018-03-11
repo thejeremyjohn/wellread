@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signin , signup } from '../../actions/session_actions';
+import { signin , signup, clearErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const msp = (state, ownProps) => {
@@ -32,6 +32,7 @@ const mdp = (dispatch, ownProps) => {
     processForm: (user) => (
       dispatch(authProps.action(user))
     ),
+    clearErrors: () => dispatch(clearErrors()),
     authProps
   };
 };

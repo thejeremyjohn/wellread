@@ -14,9 +14,7 @@ class BookShow extends React.Component {
 
     if (loading) {
       return (
-        <div className='book-show-loading'>
-          Loading book...
-        </div>
+        <div>Loading book...</div>
       );
     }
 
@@ -41,7 +39,7 @@ class BookShow extends React.Component {
       );
     }
   }
-  
+
 }
 
 export default BookShow;
