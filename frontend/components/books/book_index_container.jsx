@@ -7,7 +7,7 @@ import { requestBooks } from '../../actions/book_actions';
 const msp = (state, ownProps) => {
   return {
     books: Object.values(state.entities.books),
-    loading: state.ui.loading.indexLoading
+    loading: state.ui.loading.bookIndexLoading
   };
 };
 

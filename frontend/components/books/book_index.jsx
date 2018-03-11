@@ -31,7 +31,7 @@ class BookIndex extends Component {
               <th className='col-rating' >rating</th>
               <th className='col-shelves' >shelves</th>
               <th className='col-date-read' >date read</th>
-              <th className='col-date-added' >date added</th>        
+              <th className='col-date-added' >date added</th>
             </tr>
           </thead>
           <tbody>

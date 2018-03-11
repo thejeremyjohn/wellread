@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        <h2 className='sfh'>
+        <h2 className='auth-message'>
           {this.props.authProps.headerText}
         </h2>
         {this.renderErrors()}

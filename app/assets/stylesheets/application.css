@@ -15,7 +15,6 @@
  */
 
 /* BEGIN CSS RESET */
-
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -47,13 +46,11 @@ span, article, footer, time, small {
 ul {
   list-style: none;
 }
-
 img {
   display: block;
   width: 100%;
   height: auto;
 }
-
 input[type="password"],
 input[type="email"],
 input[type="text"],
@@ -63,22 +60,18 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
+/* ::-webkit-scrollbar {
+width: 12px;
+}
+::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
 END OF CSS RESET */
-
- /* ::-webkit-scrollbar {
-   width: 12px;
- }
-
- ::-webkit-scrollbar-track {
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-   border-radius: 10px;
- }
-
- ::-webkit-scrollbar-thumb {
-   border-radius: 10px;
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
- } */
 
 body {
   /* background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/canvas-background-9.jpg');
@@ -170,7 +163,6 @@ input[type="submit"] {
   /* background-color: rgba(255,255,255,0.5); */
 }
 /* .content-middle {
-
 } */
 .content-right {
   min-width: 200px;
@@ -197,18 +189,13 @@ input[type="submit"] {
   flex-direction: column;
   align-items: center;
 }
-.six-hundred-wide {
-  background-color: purple;
-}
 .auth-form label input {
   width: 300px;
 }
-
 .auth-bottom {
   width: 300px;
   display: flex;
 }
-
 .alt-auth {
   display: flex;
   justify-content: center;
@@ -237,7 +224,6 @@ input[type="text"] {
   /* border-radius: 3px; */
 }
 
-
 .button {
   background-color: rgb(244, 241, 234);
   border: 1px solid rgb(214, 208, 196);
@@ -259,7 +245,7 @@ input[type="text"] {
   background-color: rgb(59, 89, 152);
 }
 
-.sfh {
+.auth-message {
   font-family: "Merriweather", Georgia, "Times New Roman", serif;
   font-size: 20px;
   margin-bottom: 15px;

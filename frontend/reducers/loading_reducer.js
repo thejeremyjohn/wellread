@@ -1,19 +1,25 @@
 import merge from 'lodash/merge';
 import {
-  RECEIVE_BOOKS, START_LOADING_BOOKS,
+  START_LOADING_BOOK, RECEIVE_BOOK,
+  START_LOADING_BOOKS, RECEIVE_BOOKS
 } from '../actions/book_actions';
 
 const initialState = {
-  indexLoading: false,
+  bookShowLoading: false,
+  bookIndexLoading: false
 };
 
 const loadingReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_BOOKS:
-      return merge({}, state, { indexLoading: false });
+    case START_LOADING_BOOK:
+      return merge({}, state, { bookShowLoading: true });
+    case RECEIVE_BOOK:
+      return merge({}, state, { bookShowLoading: false });
     case START_LOADING_BOOKS:
-      return merge({}, state, { indexLoading: true });
+      return merge({}, state, { bookIndexLoading: true });
+    case RECEIVE_BOOKS:
+      return merge({}, state, { bookIndexLoading: false });
     default:
       return state;
   }

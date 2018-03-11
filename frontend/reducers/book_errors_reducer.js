@@ -1,12 +1,14 @@
-import { RECEIVE_BOOK_ERRORS } from '../actions/book_actions';
+import {
+  RECEIVE_BOOK_ERRORS, CLEAR_BOOK_ERRORS
+} from '../actions/book_actions';
 
-export default (state=[], action) => {
+export default (state=['placeholder-error-for-ya'], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOOK_ERRORS:
       return action.errors;
-    // case CLEAR_SESSION_ERRORS:
-    //   return null;
+    case CLEAR_BOOK_ERRORS:
+      return [];
     default:
       return state;
   }
