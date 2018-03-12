@@ -7,6 +7,9 @@ import Demo from './demo';
 import BookShowContainer from './books/book_show_container';
 import BookIndexContainer from './books/book_index_container';
 
+import BookshelfShowContainer from './bookshelves/bookshelf_show_container';
+import BookshelfIndexContainer from './bookshelves/bookshelf_index_container';
+
 import Header from './header';
 
 const App = () => (
@@ -36,6 +39,9 @@ const App = () => (
 
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
+
+          <Route path='/users/:userId/bookshelves' exact component={BookshelfIndexContainer} />
+          <ProtectedRoute path='/users/:userId/bookshelves/:bookshelfId' component={BookshelfShowContainer} />
 
         </div>
         <div className='content-right'></div>

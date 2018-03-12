@@ -3,9 +3,10 @@ import { requestBook } from '../../actions/book_actions';
 import BookShow from './book_show';
 
 const msp = (state, ownProps) => {
+  debugger
   return {
     book: state.entities.books[ownProps.match.params.bookId],
-    loading: state.ui.loading.bookShowLoading,
+    loading: state.ui.loading.books.bookShowLoading,
     errors: state.errors.book
   };
 };
@@ -13,7 +14,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch, ownProps) => {
   return {
-    fetchBook: (id) => dispatch(requestBook(id))
+    requestBook: (id) => dispatch(requestBook(id))
   };
 };
 

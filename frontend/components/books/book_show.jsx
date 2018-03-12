@@ -1,11 +1,10 @@
 import React from 'react';
-import { requestBook } from '../../actions/book_actions';
 
 class BookShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId != nextProps.match.params.bookId) {
-      this.props.fetchBook(nextProps.match.params.bookId);
+      this.props.requestBook(nextProps.match.params.bookId);
     }
   }
 

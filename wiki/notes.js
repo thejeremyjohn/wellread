@@ -1,12 +1,10 @@
-auth error should clear when switching between signin/up
-  or at least clear on unmount
-book errors and errors_reducer
-make formType dry-er and clean up .signin-option css
+ask about why ajax is currently circumeventing
+controller level validations re updating another users shelf
+
 jquery add/remove class based on path or component rendered
   left/right content divs should be visible once logged in
   mybooks sub header (todo) should be visisble on bookindex
 
-bookshelf table
 joins table bookshelf membership
 take out book_id from review state
 ui includes modals like dropdown menues
@@ -14,6 +12,7 @@ session: current_user {id}
 
 checklist:
   model
+  table
   controller
   view
   api_util
@@ -22,9 +21,6 @@ checklist:
     whatever
     errors
   component
-
-  // {books.map(book => <BookIndexItem key={book.id} book={book} />)}
-
 
 
 # rename tabs !!!!
@@ -65,3 +61,11 @@ import {
 import { Provider, connect } from 'react-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+
+bugs encountered:
+  persistent errors
+    - in session form fixed by conditional in componentWillReceiveProps
+      which checked if errors where present and if the path had changed
+      before dispatching a clearErrors action
+    - in book#show fixed by dispatching clearErrors straight away in
+      the thnk action creator receiveBook
