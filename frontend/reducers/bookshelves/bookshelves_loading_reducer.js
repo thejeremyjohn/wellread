@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import {
   START_LOADING_BOOKSHELF, RECEIVE_BOOKSHELF, RECEIVE_BOOKSHELF_ERRORS,
   START_LOADING_BOOKSHELVES, RECEIVE_BOOKSHELVES
-} from '../actions/bookshelf_actions';
+} from '../../actions/bookshelf_actions';
 
 const initialState = {
   bookshelfShowLoading: false,

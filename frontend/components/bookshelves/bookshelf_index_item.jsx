@@ -4,12 +4,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BookshelfIndexItem = ({ bookshelf }) => (
-  <li>
-    <Link to={`bookshelves/${bookshelf.id}`}>
-      {bookshelf.name}
-    </Link>
-  </li>
-);
+
+
+const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf }) => {
+  return (
+    <li>
+      <button
+        onClick={(uId, bookshelfId) => deleteBookshelf(userId, bookshelf.id)}
+        >DELETE
+      </button>
+      <Link to={`bookshelves/${bookshelf.id}`}>
+        {bookshelf.name}
+      </Link>
+    </li>
+  );
+};
 
 export default BookshelfIndexItem;

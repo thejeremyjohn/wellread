@@ -39,6 +39,6 @@ class Api::BookshelvesController < ApplicationController
   end
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:name)
+    params.require(:bookshelf).permit(:name, :user_id)
   end
 end

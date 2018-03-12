@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import {
   START_LOADING_BOOK, RECEIVE_BOOK, RECEIVE_BOOK_ERRORS,
   START_LOADING_BOOKS, RECEIVE_BOOKS
-} from '../actions/book_actions';
+} from '../../actions/book_actions';
 
 const initialState = {
   bookShowLoading: false,

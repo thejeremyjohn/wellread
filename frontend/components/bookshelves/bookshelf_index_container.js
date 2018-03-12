@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 
 import BookshelfIndex from './bookshelf_index';
-import { requestBookshelves } from '../../actions/bookshelf_actions';
+import {
+  requestBookshelves, deleteBookshelf
+} from '../../actions/bookshelf_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -11,7 +13,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => ({
-  requestBookshelves: () => dispatch(requestBookshelves())
+  requestBookshelves: () => dispatch(requestBookshelves()),
+  deleteBookshelf: (userId, id) => dispatch(deleteBookshelf(userId, id))
 });
 
 export default connect(msp, mdp)(BookshelfIndex);

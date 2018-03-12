@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import {
   RECEIVE_BOOK, RECEIVE_BOOKS
-} from '../actions/book_actions';
+} from '../../actions/book_actions';
 
 const booksReducer = (state={}, action) => {
   Object.freeze(state);

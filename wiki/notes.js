@@ -1,16 +1,24 @@
-ask about why ajax is currently circumeventing
-controller level validations re updating another users shelf
+TODO
+- add to bookshelf button dropdown should be shown on book show and book index
+- bookshelf_membership_controller probably needs to be restricted to current_user
+- seed stuff on heroku
+- jquery add/remove class based on path or component rendered
+- left/right content divs should be visible once logged in
+- mybooks sub header (todo) should be visisble on bookindex
 
-jquery add/remove class based on path or component rendered
-  left/right content divs should be visible once logged in
-  mybooks sub header (todo) should be visisble on bookindex
+QUESIONS
+- bookshelfMembershipsReducer currently unneccesary as I dont care about receiving json?
+- where is the user_id on bookshelves / exist in console but not in browser?
+- why ajax is currently circumeventing controller-
+  ...level validations re updating another users shelf?
 
-joins table bookshelf membership
+
+
 take out book_id from review state
 ui includes modals like dropdown menues
 session: current_user {id}
 
-checklist:
+NEW COMOPONENT CHECKLIST
   model
   table
   controller
@@ -23,7 +31,7 @@ checklist:
   component
 
 
-# rename tabs !!!!
+# rename tabs in terminal!!!!
 PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
 PROMPT_COMMAND='echo -ne "\033]0;server\a"'
 PROMPT_COMMAND='echo -ne "\033]0;console\a"'

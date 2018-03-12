@@ -28,6 +28,7 @@ span, article, footer, time, small {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   color: inherit;
+  list-style: none;
   /* text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;

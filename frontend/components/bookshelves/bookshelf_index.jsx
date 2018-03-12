@@ -11,7 +11,12 @@ class BookshelfIndex extends React.Component {
 
   render() {
     const bookshelves = this.props.bookshelves.map(bookshelf => (
-      <BookshelfIndexItem key={bookshelf.id} bookshelf={bookshelf} />
+      <BookshelfIndexItem
+        key={bookshelf.id}
+        bookshelf={bookshelf}
+        userId={this.props.match.params.userId}
+        deleteBookshelf={this.props.deleteBookshelf}
+      />
     ));
 
     const { loading } = this.props;

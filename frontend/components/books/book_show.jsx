@@ -9,7 +9,7 @@ class BookShow extends React.Component {
   }
 
   render() {
-    const { loading, book, errors } = this.props;
+    const { loading, book, errors, createBookshelfMembership } = this.props;
 
     if (loading) {
       return (

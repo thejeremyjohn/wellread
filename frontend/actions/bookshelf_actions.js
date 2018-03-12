@@ -57,27 +57,27 @@ export const requestBookshelves = () => {
   };
 };
 
-export const createBookshelf = (user, bookshelf) => {
+export const createBookshelf = (userId, bookshelf) => {
   return dispatch => {
-    return BookshelfAPIUtil.createBookshelf(user.id, bookshelf).then(
+    return BookshelfAPIUtil.createBookshelf(userId, bookshelf).then(
       (resBookshelf) => dispatch(receiveBookshelf(bookshelf)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
 };
 
-export const updateBookshelf = (user, bookshelf) => {
+export const updateBookshelf = (userId, bookshelf) => {
   return dispatch => {
-    return BookshelfAPIUtil.updateBookshelf(user.id, bookshelf).then(
+    return BookshelfAPIUtil.updateBookshelf(userId, bookshelf).then(
       (resBookshelf) => dispatch(receiveBookshelf(bookshelf)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
 };
 
-export const deleteBookshelf = (user, id) => {
+export const deleteBookshelf = (userId, id) => {
   return dispatch => {
-    return BookshelfAPIUtil.deleteBookshelf(user.id, id).then(
+    return BookshelfAPIUtil.deleteBookshelf(userId, id).then(
       (bookshelves) => dispatch(receiveBookshelf(bookshelves)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
