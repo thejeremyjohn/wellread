@@ -6,6 +6,10 @@ class BookShow extends React.Component {
     this.addToBookshelfTwo = this.addToBookshelfTwo.bind(this);
   }
 
+  componentDidMount() {
+    this.props.requestBook(this.props.match.params.bookId);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId != nextProps.match.params.bookId) {
       this.props.requestBook(nextProps.match.params.bookId);

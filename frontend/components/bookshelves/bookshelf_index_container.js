@@ -13,7 +13,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => ({
-  requestBookshelves: () => dispatch(requestBookshelves()),
+  requestBookshelves: (userId) => dispatch(requestBookshelves(userId)),
   deleteBookshelf: (userId, id) => dispatch(deleteBookshelf(userId, id))
 });
 

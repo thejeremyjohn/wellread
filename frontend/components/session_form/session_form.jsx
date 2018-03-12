@@ -19,6 +19,9 @@ class SessionForm extends React.Component {
 
     if (nextProps.loggedIn) {
       history.push('/');
+      // if (location.pathname === '/signup') {
+      //   // create read, currently reading, and want to read
+      // }
     }
   }
 
@@ -100,7 +103,7 @@ class SessionForm extends React.Component {
       </div>
      );
    }
-   
+
 }
 
 export default withRouter(SessionForm);

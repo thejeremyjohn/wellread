@@ -1,8 +1,6 @@
 class Api::BookshelvesController < ApplicationController
   def index
-    # debugger
-    @bookshelves = Bookshelf.where(user_id: current_user.id)
-    # @bookshelves = current_user.bookshelves
+    @bookshelves = current_user.bookshelves
   end
 
   def create

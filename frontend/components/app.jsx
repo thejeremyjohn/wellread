@@ -40,7 +40,7 @@ const App = () => (
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 
-          <Route path='/users/:userId/bookshelves' exact component={BookshelfIndexContainer} />
+          <ProtectedRoute path='/users/:userId/bookshelves' exact component={BookshelfIndexContainer} />
           <ProtectedRoute path='/users/:userId/bookshelves/:bookshelfId' component={BookshelfShowContainer} />
 
         </div>

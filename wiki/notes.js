@@ -1,10 +1,13 @@
 TODO
-- add to bookshelf button dropdown should be shown on book show and book index
+- addTo bookshelf button dropdown should be shown on book show and book index
+  - use a modal (if possible) which can live inside the book#show slice of state
+- when a user is created, three bookshelves should also be created for them
+  - these bookshelves should not be delete-able
 - bookshelf_membership_controller probably needs to be restricted to current_user
-- seed stuff on heroku
 - jquery add/remove class based on path or component rendered
 - left/right content divs should be visible once logged in
 - mybooks sub header (todo) should be visisble on bookindex
+
 
 QUESIONS
 - bookshelfMembershipsReducer currently unneccesary as I dont care about receiving json?

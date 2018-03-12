@@ -46,10 +46,10 @@ export const requestBookshelf = (userId, id) => {
   };
 };
 
-export const requestBookshelves = () => {
+export const requestBookshelves = (userId) => {
   return (dispatch) => {
     dispatch(startLoadingBookshelves());
-    return BookshelfAPIUtil.fetchBookshelves().then(
+    return BookshelfAPIUtil.fetchBookshelves(userId).then(
       (bookshelves) => {
         dispatch(receiveBookshelves(bookshelves));
       }

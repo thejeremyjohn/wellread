@@ -6,10 +6,16 @@ import BookshelfIndexItem from './bookshelf_index_item';
 class BookshelfIndex extends React.Component {
 
   componentDidMount() {
-    this.props.requestBookshelves();
+    this.props.requestBookshelves(this.props.match.params.userId);
   }
 
   render() {
+
+    const { loading } = this.props;
+    if (loading) {
+      return <div>Loading bookshelf index...</div>;
+    }
+
     const bookshelves = this.props.bookshelves.map(bookshelf => (
       <BookshelfIndexItem
         key={bookshelf.id}
@@ -19,10 +25,9 @@ class BookshelfIndex extends React.Component {
       />
     ));
 
-    const { loading } = this.props;
-    if (loading) {
-      return <div>Loading bookshelf index...</div>;
-    }
+    if (bookshelves.length===0) return (
+      <ul className='errors-list'><li>NO BOOKSHELVES</li></ul>
+    );
 
     return (
       <ul>
