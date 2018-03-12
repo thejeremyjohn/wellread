@@ -10,6 +10,7 @@ require 'faker'
 
 User.destroy_all
 Book.destroy_all
+Bookshelf.destroy_all
 
 User.create(username: 'demo', password: 'password')
 
@@ -35,4 +36,10 @@ Book.create(
     description: Faker::Lorem.paragraph,
     img_url: 'http://s2.quickmeme.com/img/34/347d80261f3d0cbcc382ed45c68a0bc5910e3c04280ae116f2e02d29e2bef5fc.jpg'
   )
+end
+
+User.all.each do |user|
+  3.times do |i|
+    Bookshelf.create(user_id: user.id, name: Faker::StarTrek.specie)
+  end
 end
