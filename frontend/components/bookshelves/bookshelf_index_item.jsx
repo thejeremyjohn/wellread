@@ -16,7 +16,7 @@ const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname }) =>
 
   return (
     <li>
-      <Link to={`bookshelves/${bookshelf.id}`}>
+      <Link to={`/users/${userId}/bookshelves/${bookshelf.id}`}>
         {bookshelf.name}&nbsp;({bookshelf.book_ids.length})
       </Link>
     </li>
