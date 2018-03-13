@@ -23,7 +23,7 @@ class BookShow extends React.Component {
   }
 
   render() {
-    $('.content-outer').addClass('white-bg');
+    // $('.content-outer').addClass('white-bg');
     // $('').addClass('white-bg');
     const { loading, book, errors, createBookshelfMembership } = this.props;
 

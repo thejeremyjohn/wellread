@@ -19,7 +19,8 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
   }
-  protectedNav() {
+
+  headerRight() {
     if ( this.props.currentUser ) {
       return (
         <div className='header-right header-nav'>
@@ -37,18 +38,38 @@ class Header extends React.Component {
     }
   }
 
+  headerLeft() {
+    if ( this.props.currentUser ) {
+      return (
+        <div className='header-left header-nav'>
+          <Link to='/'>Home</Link>
+          <Link
+            to={`/users/${this.props.currentUser.id}/bookshelves`}
+            >My&nbsp;Books
+          </Link>
+          <Link to='/books'>Browse</Link>
+          <a className='not-implemented'>Community</a>
+        </div>
+      );
+    } else {
+      return (
+        <div className='header-left header-nav'>
+          <a className='not-implemented'>Home</a>
+          <a className='not-implemented'>My&nbsp;Books</a>
+          <a className='not-implemented'>Browse</a>
+          <a className='not-implemented'>Community</a>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className='header-outer'>
         <div className='header'>
           <Link className='logo' to='/' read='read'>well</Link>
-          <div className='header-left header-nav'>
-            <Link to='/'>Home</Link>
-            <Link to='/books'>Books</Link>
-            <a className='not-implemented'>Browse</a>
-            <a className='not-implemented'>Community</a>
-          </div>
-          {this.protectedNav()}
+          {this.headerLeft()}
+          {this.headerRight()}
         </div>
       </div>
       );

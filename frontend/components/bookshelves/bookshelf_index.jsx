@@ -10,7 +10,6 @@ class BookshelfIndex extends React.Component {
   }
 
   render() {
-
     const { loading } = this.props;
     if (loading) {
       return <div>Loading bookshelf index...</div>;
@@ -22,6 +21,7 @@ class BookshelfIndex extends React.Component {
         bookshelf={bookshelf}
         userId={this.props.match.params.userId}
         deleteBookshelf={this.props.deleteBookshelf}
+        pathname={this.props.history.location.pathname}
       />
     ));
 
@@ -30,7 +30,8 @@ class BookshelfIndex extends React.Component {
     );
 
     return (
-      <ul>
+      <ul className='bookshelf-index'>
+        <h3 className='bookshelf-index-header'>Bookshelves</h3>
         {bookshelves}
       </ul>
     );

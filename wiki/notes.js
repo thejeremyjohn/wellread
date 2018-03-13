@@ -1,6 +1,8 @@
 TODO
 - "sticky" header
 - auth section should go away completely after sign in
+
+- trouble mapping books on bookshelf#show
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
 - when a user is created, three bookshelves should also be created for them
@@ -13,14 +15,9 @@ TODO
 
 
 QUESIONS
-- bookshelfMembershipsReducer currently unneccesary as I dont care about receiving json?
-- where is the user_id on bookshelves / exist in console but not in browser?
-- why ajax is currently circumeventing controller-
-  ...level validations re updating another users shelf?
+- Link to bookshelf#show (from bookshelf#index (from bookshelf#show))
 
 
-
-take out book_id from review state
 ui includes modals like dropdown menues
 session: current_user {id}
 

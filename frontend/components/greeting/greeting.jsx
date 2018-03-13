@@ -10,14 +10,14 @@ export default class Greeting extends React.Component {
   render() {
     const { logout, currentUser } = this.props;
 
+    // <Link to={`/users/${currentUser.id}/bookshelves`}>
+    //   Click here to go to bookshelves -- extremely under construction
+    // </Link>
     if ( currentUser ) {
       return (
         <div>
           <h3>well met, { currentUser.username }!</h3>
 
-          <Link to={`/users/${currentUser.id}/bookshelves`}>
-            Click here to go to bookshelves -- extremely under construction
-          </Link>
         </div>
       );
     } else {

@@ -50,9 +50,8 @@ export const requestBookshelves = (userId) => {
   return (dispatch) => {
     dispatch(startLoadingBookshelves());
     return BookshelfAPIUtil.fetchBookshelves(userId).then(
-      (bookshelves) => {
-        dispatch(receiveBookshelves(bookshelves));
-      }
+      (bookshelves) => dispatch(receiveBookshelves(bookshelves))
+      // ,(err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
 };

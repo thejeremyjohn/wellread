@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.bookshelfActions = bookshelfActions;
   window.bookshelfMembershipActions = bookshelfMembershipActions;
   window.store = store;
-  // window.getState = store.getState;
+  window.getState = store.getState;
   window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={ store }/>, root);
