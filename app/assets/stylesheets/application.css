@@ -90,47 +90,40 @@ button,
 input[type="submit"] {
   cursor: pointer;
 }
-
-.header {
-  height: 47.23px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+.button {
+  background-color: rgb(244, 241, 234);
+  border: 1px solid rgb(214, 208, 196);
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 12px 24px;
+}
+.button:hover {
+  background-color: #ede6d6;
 }
 
-.nav-bar {
-  height: 100%;
+
+.header-outer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15)
+}
+.header {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin: 0 182.5px;
+  color: rgb(59,42,24);
 }
-
-.nav-bar > * {
-  height: 100%;
-  font-size: 16px;
-  padding: 15px 20px;
-  top: 20px;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-.nav-bar > *:hover:not(.not-implemented) {
-  /* padding: 0 20px; */
-  background-color: rgb(56,33,16);
-  color: white;
-}
-
-/* .not-implemented {
-  color: gray;
-} */
-
 .logo {
+  margin-left: 16px;
   font-size: 30.23px;
   font-family: 'Raleway', sans-serif;
-  font-weight: normal;
-  color: #3b2a18;
   position: relative;
-  width: 150px;
+  min-width: 122px;
   height: auto;
-  display: inline;
   text-decoration: none;
 }
 .logo:after {
@@ -139,6 +132,45 @@ input[type="submit"] {
   left: 58px;
   position: absolute;
 }
+.header-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.header-left {
+  padding: 0 15px;
+}
+.header-left * {
+  padding: 0 15px;
+  margin: auto 0;
+  font-size: 16px;
+  text-decoration: none;
+  height: 100%;
+  line-height: 50px;
+}
+.header-right {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.header-temp-signout{
+  padding: 0;
+  border-radius: 50%;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  width: 50px;
+}
+.header-nav > * {
+}
+.header-nav > *:hover:not(.not-implemented) {
+  /* padding: 0 20px; */
+  background-color: rgb(56,33,16);
+  color: white;
+}
+
+.not-implemented {
+color: gray;
+}
 
 .content-outer {
   width: 100%;
@@ -146,7 +178,6 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
 }
-
 .content-inner {
   /* width: 960px; */
   width: 100%;
@@ -154,7 +185,6 @@ input[type="submit"] {
   flex-direction: row;
   justify-content: center;
 }
-
 .content-left {
   min-width: 200px;
   height: 100%;
@@ -222,17 +252,6 @@ input[type="text"] {
   /* border-radius: 3px; */
 }
 
-.button {
-  background-color: rgb(244, 241, 234);
-  border: 1px solid rgb(214, 208, 196);
-  border-radius: 3px;
-  font-size: 16px;
-  padding: 12px 24px;
-}
-.button:hover {
-  background-color: #ede6d6;
-}
-
 .demo.button {
   background-color: rgb(78, 105, 162);
   color: white;
@@ -251,7 +270,7 @@ input[type="text"] {
   text-align: center;
 }
 
-.session-nav > * {
+.session-option > * {
   text-decoration: none
 }
 
@@ -308,4 +327,35 @@ td {
 }
 .col-title a:hover {
   text-decoration: underline;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+/* book#show */
+.book-show-outer {
+  display: flex;
+  flex-direction: row;
+}
+.book-show-inner-left {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 10px 0;
+}
+.book-cover {
+  margin-bottom: 10px;
+}
+.book-title {
+  font-family: "Merriweather", "Georgia", serif;
+  font-size: 20px;
+  font-weight: 700
+}
+.book-description {
+  font-family: "Merriweather", "Georgia", serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+.book-author {
+  font-size: 13.2px
 }

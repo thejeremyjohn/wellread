@@ -33,10 +33,10 @@ const App = () => (
                 path="/signup"
                 component={SessionFormContainer}
                 />
-              <GreetingContainer />
             </Switch>
           </section>
 
+          <ProtectedRoute path='/' exact component={GreetingContainer} />
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 

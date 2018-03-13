@@ -18,10 +18,13 @@ class BookShow extends React.Component {
 
   addToBookshelfTwo() {
     const { createBookshelfMembership, book } = this.props;
-    createBookshelfMembership(book.id, { book_id: book.id, bookshelf_id: 2 });
+    debugger
+    createBookshelfMembership(book.id, { book_id: book.id, bookshelf_id: 23 });
   }
 
   render() {
+    $('.content-outer').addClass('white-bg');
+    // $('').addClass('white-bg');
     const { loading, book, errors, createBookshelfMembership } = this.props;
 
     if (loading) {
@@ -32,15 +35,23 @@ class BookShow extends React.Component {
 
     if (book) {
       return (
-        <div>
-          <h3>{book.title}</h3>
-          <img src={book.img_url}></img>
-          <p>{book.author}</p>
-          <p>{book.description}</p>
-          <button
-            onClick={() => this.addToBookshelfTwo()}
-            >Add to bookshelf @ id 2
-          </button>
+        <div className='book-show-outer'>
+          <div className='book-show-inner-left'>
+            <img className='book-cover'
+              src={book.img_url}
+              height='247.25px;'
+              width='150px'
+            ></img>
+            <button
+              onClick={() => this.addToBookshelfTwo()}
+              >Add to bookshelf @ id 2
+            </button>
+          </div>
+          <div className='book-show-inner-right'>
+            <p className='book-title'>{book.title}</p>
+            <p className='book-author'>by {book.author}</p>
+            <p className='book-description'>{book.description}</p>
+          </div>
         </div>
       );
     }
