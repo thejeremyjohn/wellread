@@ -11,6 +11,7 @@ require 'faker'
 # User.destroy_all
 # Book.destroy_all
 Bookshelf.destroy_all
+BookshelfMembership.destroy_all
 
 # User.create(username: 'demo', password: 'password')
 
@@ -38,8 +39,18 @@ Bookshelf.destroy_all
 #   )
 # end
 
-User.all.each do |user|
-  3.times do |i|
-    Bookshelf.create(user_id: user.id, name: Faker::StarTrek.specie)
+User.ids.each do |user_id|
+  Bookshelf.create(user_id: user_id, name: 'read')
+  Bookshelf.create(user_id: user_id, name: 'currently reading')
+  Bookshelf.create(user_id: user_id, name: 'want to read')
+  4.times do |i|
+    Bookshelf.create(user_id: user_id, name: Faker::StarTrek.specie)
+  end
+end
+
+book_ids = Book.ids
+Bookshelf.ids.each do |bookshelf_id|
+  book_ids.shuffle.sample(rand(book_ids.length)).each do |book_id|
+    BookshelfMembership.create(book_id: book_id, bookshelf_id: bookshelf_id)
   end
 end
