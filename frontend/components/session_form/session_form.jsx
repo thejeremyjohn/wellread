@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Demo from '../demo';
+
 
 class SessionForm extends React.Component {
 
@@ -8,6 +10,10 @@ class SessionForm extends React.Component {
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // componentWillMount() {
+  //   $('.content-outer').addClass('tan-bg-texture');
+  // }
 
   componentWillReceiveProps(nextProps) {
     const { errors, location, clearErrors, history } = this.props;
@@ -24,6 +30,10 @@ class SessionForm extends React.Component {
       // }
     }
   }
+
+  // componentWillUnmount() {
+  //   $('.content-outer').removeClass('tan-bg-texture');
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -63,43 +73,46 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2 className='auth-message'>
-          {this.props.authProps.headerText}
-        </h2>
-        {this.renderErrors()}
-        <form className='auth-form' onSubmit={this.handleSubmit}>
-          <label>Name
-      <br/>
-            <input
-              type='text'
-              value={this.state.username}
-              onChange={this.update('username')}
-              placeholder='Name'
-              autoFocus
-              />
-          </label>
-      <br/>
-          <label>Password
-      <br/>
-            <input
-              type='password'
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder='Password'
-              />
-          </label>
-      <br/>
+      <div className='auth-outer'>
+        <div className='auth-inner'>
+          <h2 className='auth-message'>
+            {this.props.authProps.headerText}
+          </h2>
+          <Demo />
+          {this.renderErrors()}
+          <form className='auth-form' onSubmit={this.handleSubmit}>
+            <label>Name
+              <br/>
+              <input
+                type='text'
+                value={this.state.username}
+                onChange={this.update('username')}
+                placeholder='Name'
+                autoFocus
+                />
+            </label>
+            <br/>
+            <label>Password
+              <br/>
+              <input
+                type='password'
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder='Password'
+                />
+            </label>
+            <br/>
             <div className='auth-bottom'>
               <input
                 className='button'
                 type='submit'
                 value={this.props.authProps.buttonText}
-              />
-            {this.altAuth()}
+                />
+              {this.altAuth()}
             </div>
-      <br/>
-        </form>
+            <br/>
+          </form>
+        </div>
       </div>
      );
    }

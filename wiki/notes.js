@@ -1,4 +1,6 @@
 TODO
+- "sticky" header
+- auth section should go away completely after sign in
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
 - when a user is created, three bookshelves should also be created for them
@@ -37,9 +39,13 @@ NEW COMOPONENT CHECKLIST
 
 # rename tabs in terminal!!!!
 PROMPT_COMMAND='echo -ne "\033]0;webpack\a"'
+webpack --watch
 PROMPT_COMMAND='echo -ne "\033]0;server\a"'
+be rails s
 PROMPT_COMMAND='echo -ne "\033]0;console\a"'
+be rails c
 PROMPT_COMMAND='echo -ne "\033]0;routes\a"'
+be rails routes
 
 
 // // signup

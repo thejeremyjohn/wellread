@@ -19,10 +19,14 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
   }
-  signoutButton() {
+  protectedNav() {
     if ( this.props.currentUser ) {
       return (
         <div className='header-right header-nav'>
+          <img className='not-implemented'src='https://s.gr-assets.com/assets/layout/header/icn_nav_notifications.svg'></img>
+          <img className='not-implemented'src='https://s.gr-assets.com/assets/layout/header/icn_nav_discussions.svg'></img>
+          <img className='not-implemented'src='https://s.gr-assets.com/assets/layout/header/icn_nav_msgs.svg'></img>
+          <img className='not-implemented'src='https://s.gr-assets.com/assets/layout/header/icn_nav_friend.svg'></img>
           <button
             className='header-temp-signout button'
             onClick={ this.props.logout }
@@ -44,7 +48,7 @@ class Header extends React.Component {
             <a className='not-implemented'>Browse</a>
             <a className='not-implemented'>Community</a>
           </div>
-          {this.signoutButton()}
+          {this.protectedNav()}
         </div>
       </div>
       );
