@@ -39,10 +39,12 @@ class ShelfMenu extends React.Component {
 
       // debugger
       //
-      // this.props.createBookshelfMembership({
-      //   book_id: bookId,
-      //   bookshelf_id: shelfId
-      // });
+      if (isChecked) {
+        this.props.createBookshelfMembership({
+          book_id: bookId,
+          bookshelf_id: shelfId
+        });
+      }
 
       // this.setState(merge(
       //   {}, this.state,
