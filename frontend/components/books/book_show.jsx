@@ -1,9 +1,9 @@
 import React from 'react';
+import ShelfMenu from './shelf_menu';
 
 class BookShow extends React.Component {
   constructor(props) {
     super(props);
-    this.addToBookshelfTwo = this.addToBookshelfTwo.bind(this);
   }
 
   componentDidMount() {
@@ -16,24 +16,25 @@ class BookShow extends React.Component {
     }
   }
 
-  addToBookshelfTwo() {
-    const { createBookshelfMembership, book } = this.props;
-    debugger
-    createBookshelfMembership(book.id, { book_id: book.id, bookshelf_id: 23 });
-  }
-
   render() {
     // $('.content-outer').addClass('white-bg');
     // $('').addClass('white-bg');
-    const { loading, book, errors, createBookshelfMembership } = this.props;
+    const { loading, book, errors } = this.props;
 
     if (loading) {
-      return (
-        <div>Loading book...</div>
-      );
+      return <div>Loading book...</div>;
     }
 
     if (book) {
+
+      const bookshelves = this.props.bookshelves.map(shelf => (
+        <ShelfMenu
+          key={shelf.id}
+          book={book}
+          shelf={shelf}
+        />
+      ));
+
       return (
         <div className='book-show-outer'>
           <div className='book-show-inner-left'>
@@ -42,10 +43,10 @@ class BookShow extends React.Component {
               height='247.25px;'
               width='150px'
             ></img>
-            <button
-              onClick={() => this.addToBookshelfTwo()}
-              >Add to bookshelf @ id 2
-            </button>
+          <h3>current shelf / want to read: </h3>
+            <ul className='shelf-menu'>
+                {bookshelves}
+            </ul>
           </div>
           <div className='book-show-inner-right'>
             <p className='book-title'>{book.title}</p>

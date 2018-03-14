@@ -5,13 +5,14 @@ import {
 } from '../../actions/bookshelf_membership_actions';
 
 const bookshelfMembershipsReducer = (state={}, action) => {
+  // debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BOOKSHELF_MEMBERSHIP:
       return merge(
         {},
         state,
-        {[action.bookshelf_membership.id]: action.bookshelf_membership}
+        {[action.bookshelfMembership.id]: action.bookshelfMembership}
       );
     case RECEIVE_BOOKSHELF_MEMBERSHIPS:
       return merge({}, state, action.bookshelfMemberships);

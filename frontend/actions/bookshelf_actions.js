@@ -59,7 +59,7 @@ export const requestBookshelves = (userId) => {
 export const createBookshelf = (userId, bookshelf) => {
   return dispatch => {
     return BookshelfAPIUtil.createBookshelf(userId, bookshelf).then(
-      (resBookshelf) => dispatch(receiveBookshelf(bookshelf)),
+      (resBookshelf) => dispatch(receiveBookshelf(resBookshelf)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
@@ -68,7 +68,7 @@ export const createBookshelf = (userId, bookshelf) => {
 export const updateBookshelf = (userId, bookshelf) => {
   return dispatch => {
     return BookshelfAPIUtil.updateBookshelf(userId, bookshelf).then(
-      (resBookshelf) => dispatch(receiveBookshelf(bookshelf)),
+      (resBookshelf) => dispatch(receiveBookshelf(resBookshelf)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };

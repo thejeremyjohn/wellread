@@ -29,7 +29,7 @@ BookshelfMembership.destroy_all
 #   img_url: 'https://images.gr-assets.com/books/1420003664l/30474.jpg'
 #  )
 #
-# 100.times do |i|
+# 48.times do |i|
 #   book = Faker::Book
 #   Book.create(
 #     title: book.title,

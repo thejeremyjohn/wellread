@@ -18,9 +18,14 @@ const App = () => (
 
     <div className='content-outer'>
       <div className='content-inner'>
+
         <div className='content-left'>
-          <ProtectedRoute path='/users/:userId/bookshelves' component={BookshelfIndexContainer} />
+          <ProtectedRoute
+            path='/users/:userId/bookshelves'
+            component={BookshelfIndexContainer}
+          />
         </div>
+
         <div className='content-middle'>
 
           <Switch>
@@ -32,7 +37,10 @@ const App = () => (
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 
-          <ProtectedRoute path='/users/:userId/bookshelves/:bookshelfId' component={BookshelfShowContainer} />
+          <ProtectedRoute
+            path='/users/:userId/bookshelves/:bookshelfId'
+            component={BookshelfShowContainer}
+          />
 
         </div>
         <div className='content-right'></div>

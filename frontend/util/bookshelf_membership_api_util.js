@@ -1,22 +1,22 @@
-export const createBookshelfMembership = (bookId, bookshelf_membership) => {
+export const createBookshelfMembership = (bookshelf_membership) => {
   return $.ajax({
     method: 'POST',
-    url: `/api/books/${bookId}/bookshelf_memberships`,
+    url: `/api/books/${bookshelf_membership.book_id}/bookshelf_memberships`,
     data: { bookshelf_membership }
   });
 };
 
 // $.ajax({
 //   method: 'POST',
-//   url: `/api/books/56/bookshelf_memberships`,
-//   data: { bookshelf_membership: { bookshelf_id: 2, book_id: 56 } }
+//   url: `/api/books/191/bookshelf_memberships`,
+//   data: { bookshelf_membership: { book_id: 191, bookshelf_id: 26 } }
 // });
 
 
-export const updateBookshelfMembership = (bookId, bookshelf_membership) => {
+export const updateBookshelfMembership = (bookshelf_membership) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/books/${bookId}/bookshelf_memberships/${bookshelf_membership.id}`,
+    url: `/api/books/${bookshelf_membership.book_id}/bookshelf_memberships/${bookshelf_membership.id}`,
     data: { bookshelf_membership }
   });
 };

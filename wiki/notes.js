@@ -1,26 +1,21 @@
 TODO
 - "sticky" header
-- auth section should go away completely after sign in
-
 - ui renderModal === false
+- delete unwanted methods from book#show and container
 
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
+    - ui includes modals like dropdown menues
 - when a user is created, three bookshelves should also be created for them
   - session_form componentWillReceiveProps-- see comment
   - these bookshelves should not be delete-able
 - bookshelf_membership_controller probably needs to be restricted to current_user
-- jquery add/remove class based on path or component rendered
-- left/right content divs should be visible once logged in
 - mybooks sub header (todo) should be visisble on bookindex
 
 
 QUESIONS
-- Link to bookshelf#show (from bookshelf#index (from bookshelf#show))
 
 
-ui includes modals like dropdown menues
-session: current_user {id}
 
 NEW COMOPONENT CHECKLIST
   model

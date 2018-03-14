@@ -1,11 +1,16 @@
 class Api::BookshelfMembershipsController < ApplicationController
 
   def create
-    # debugger
     @bookshelf_membership = BookshelfMembership.new(bookshelf_membership_params)
-    unless @bookshelf_membership.save
+    if @bookshelf_membership.save
+      render "api/bookshelf_memberships/show"
+    else
       render json: @user.errors.full_messages
     end
+  end
+
+  def show
+    @bookshelf_membership = BookshelfMembership.find(params[:id])
   end
 
   def update
@@ -25,7 +30,7 @@ class Api::BookshelfMembershipsController < ApplicationController
   end
 
   def bookshelf_membership_params
-    params.require(:bookshelf_membership).permit(:bookshelf_id, :book_id)
+    params.require(:bookshelf_membership).permit(:book_id, :bookshelf_id)
   end
 
 end
