@@ -3,6 +3,9 @@ TODO
 - ui renderModal === false
 - delete unwanted methods from book#show and container
 
+- checkbox to toggle creating/deleting bookshelf memberships
+  - update bookshelf membership is a useless action
+  
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
     - ui includes modals like dropdown menues

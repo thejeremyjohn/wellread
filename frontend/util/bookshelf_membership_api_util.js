@@ -13,13 +13,13 @@ export const createBookshelfMembership = (bookshelf_membership) => {
 // });
 
 
-export const updateBookshelfMembership = (bookshelf_membership) => {
-  return $.ajax({
-    method: 'PATCH',
-    url: `/api/books/${bookshelf_membership.book_id}/bookshelf_memberships/${bookshelf_membership.id}`,
-    data: { bookshelf_membership }
-  });
-};
+// export const updateBookshelfMembership = (bookshelf_membership) => {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: `/api/books/${bookshelf_membership.book_id}/bookshelf_memberships/${bookshelf_membership.id}`,
+//     data: { bookshelf_membership }
+//   });
+// };
 
 // $.ajax({
 //   method: 'PATCH',
@@ -28,10 +28,10 @@ export const updateBookshelfMembership = (bookshelf_membership) => {
 // });
 
 
-export const deleteBookshelfMembership = (bookId, id) => {
+export const deleteBookshelfMembership = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/books/${bookId}/bookshelf_memberships/${id}`
+    url: `/api/bookshelf_memberships/${id}`
   });
 };
 

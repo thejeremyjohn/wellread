@@ -45,18 +45,18 @@ export const createBookshelfMembership = (bookshelfMembership) => {
 };
 
 
-export const updateBookshelfMembership = (bookshelfMembership) => {
+// export const updateBookshelfMembership = (bookshelfMembership) => {
+//   return dispatch => {
+//     return BookshelfMembershipAPIUtil.updateBookshelfMembership(bookshelfMembership).then(
+//       (membership) => dispatch(receiveBookshelfMembership(membership)),
+//       (err) => dispatch(receiveErrors(err.responseJSON))
+//     );
+//   };
+// };
+//
+export const deleteBookshelfMembership = (id) => {
   return dispatch => {
-    return BookshelfMembershipAPIUtil.updateBookshelfMembership(bookshelfMembership).then(
-      (membership) => dispatch(receiveBookshelfMembership(membership)),
-      (err) => dispatch(receiveErrors(err.responseJSON))
-    );
-  };
-};
-
-export const deleteBookshelfMembership = (bookId, id) => {
-  return dispatch => {
-    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookId, id).then(
+    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(id).then(
       (membership) => dispatch(receiveBookshelfMembership(membership)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );

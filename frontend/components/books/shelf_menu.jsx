@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import merge from 'lodash/merge';
 import {
   createBookshelfMembership
 } from '../../actions/bookshelf_membership_actions';
@@ -12,56 +13,76 @@ const mdp = (dispatch) => {
   };
 };
 
-// NEED to eliminate redundancies
-// in the bookshelf membership actions
 class ShelfMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.addToShelf = this.addToShelf.bind(this);
+    this.state = {};
+    // default unchecked for all of the user's bookshelves
+    props.userBookshelfIds.forEach(id => {
+      this.state[id] = false;
+    });
+    // checked for all of the book's bookshelves (i.e. memberships)
+    props.book.bookshelf_ids.forEach(id => {
+      this.state[id] = true;
+    });
+    // debugger
+    this.handleShelfMembership = this.handleShelfMembership.bind(this);
   }
-  addToShelf(bookId, shelfId) {
+
+  handleShelfMembership(bookId, shelfId) {
     return (e) => {
-      this.props.createBookshelfMembership({
-        book_id: bookId,
-        bookshelf_id: shelfId
-      });
+      const name = e.target.name;
+      const isChecked = e.target.checked;
+      const newState = (merge({}, this.state));
+      newState[name] = isChecked;
+      this.setState(newState);
+
+      // debugger
+      //
+      // this.props.createBookshelfMembership({
+      //   book_id: bookId,
+      //   bookshelf_id: shelfId
+      // });
+
+      // this.setState(merge(
+      //   {}, this.state,
+      //   { [e.target.name]: value }
+      // ));
     };
   }
+
   render() {
     const { shelf, book } = this.props;
-    // {book.id + '-->' + shelf.id}
-    // <br/>
+    // {book.id + '-->' + shelf.id} <br/>
     return (
-      <li>
-        <button
-          className='shelf-menu-items'
-          onClick={this.addToShelf(book.id, shelf.id)}
-          >{shelf.name}
-        </button>
-      </li>
+      <label>
+        <input
+          type='checkbox'
+          name={shelf.id}
+          checked={this.state[shelf.id]}
+          onChange={this.handleShelfMembership(book.id, shelf.id)}
+        />{shelf.name}
+        <br/>
+      </label>
     );
   }
 }
 
 export default connect(null, mdp)(ShelfMenu);
 
-// const ShelfMenu = ({ shelf, book }) => {
-//   return (
-//     <ul>
-//       <li>
-//
-//         <button
-//           className='shelf-menu-items'
-//           onClick={addToShelf({
-//             book_id: book.id,
-//             bookshelf_id: shelf.id
-//           })}
-//           >{shelf.name}
-//         </button>
-//
-//       </li>
-//     </ul>
-//   );
-// };
+// this.addToShelf = this.addToShelf.bind(this);
 
-// export default ShelfMenu;
+// addToShelf(bookId, shelfId) {
+//   return (e) => {
+//     this.props.createBookshelfMembership({
+//       book_id: bookId,
+//       bookshelf_id: shelfId
+//     });
+//   };
+// }
+
+// <button
+//   className='shelf-menu-items'
+//   onClick={this.addToShelf(book.id, shelf.id)}
+//   >{shelf.name}
+// </button>

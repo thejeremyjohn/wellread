@@ -25,16 +25,22 @@ class BookShow extends React.Component {
       return <div>Loading book...</div>;
     }
 
+    const bookshelves = this.props.bookshelves.map(shelf => (
+      <ShelfMenu
+        key={shelf.id}
+        book={book}
+        shelf={shelf}
+        userBookshelfIds={this.props.bookshelves.map(b => b.id)}
+      />
+    ));
+
     if (book) {
+      // debugger
+      // const memberships = this.props.memberships.map(membership => (
+      //   membership.id
+      // )).join(' ');
 
-      const bookshelves = this.props.bookshelves.map(shelf => (
-        <ShelfMenu
-          key={shelf.id}
-          book={book}
-          shelf={shelf}
-        />
-      ));
-
+      // <p>{book.bookshelf_ids.join(' ')}</p>
       return (
         <div className='book-show-outer'>
           <div className='book-show-inner-left'>
@@ -43,10 +49,11 @@ class BookShow extends React.Component {
               height='247.25px;'
               width='150px'
             ></img>
-          <h3>current shelf / want to read: </h3>
-            <ul className='shelf-menu'>
-                {bookshelves}
-            </ul>
+          <h3>current shelf / want to read:</h3>
+            <form
+              className='shelf-menu'>
+              {bookshelves}
+            </form>
           </div>
           <div className='book-show-inner-right'>
             <p className='book-title'>{book.title}</p>

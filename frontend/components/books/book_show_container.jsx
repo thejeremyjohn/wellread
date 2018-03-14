@@ -12,8 +12,7 @@ const msp = (state, ownProps) => {
     book: state.entities.books[ownProps.match.params.bookId],
     bookshelves: state.session.currentUser.bookshelves,
     loading: state.ui.loading.books.bookShowLoading,
-    errors: state.errors.book,
-    memberships: state.entities.memberships
+    errors: state.errors.book
   };
 };
 
