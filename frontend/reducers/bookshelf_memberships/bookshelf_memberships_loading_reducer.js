@@ -8,14 +8,14 @@ import {
   RECEIVE_BOOKSHELF_MEMBERSHIP_ERRORS,
   START_LOADING_BOOKSHELF_MEMBERSHIPS,
   RECEIVE_BOOKSHELF_MEMBERSHIPS
-} from '../../actions/book_actions';
+} from '../../actions/bookshelf_membership_actions';
 
 const initialState = {
   membershipLoading: false,
   membershipsLoading: false,
 };
 
-const bookshelfMembershipLoadingReducer = (state = initialState, action) => {
+const bookshelfMembershipsLoadingReducer = (state = initialState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case START_LOADING_BOOKSHELF_MEMBERSHIP:
@@ -33,4 +33,4 @@ const bookshelfMembershipLoadingReducer = (state = initialState, action) => {
   }
 };
 
-export default bookshelfMembershipLoadingReducer;
+export default bookshelfMembershipsLoadingReducer;

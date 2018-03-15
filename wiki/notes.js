@@ -1,19 +1,47 @@
 TODO
 - "sticky" header
 - ui renderModal === false
-- delete unwanted methods from book#show and container
 
-- checkbox to toggle creating/deleting bookshelf memberships
-  - update bookshelf membership is a useless action
-  
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
     - ui includes modals like dropdown menues
+
 - when a user is created, three bookshelves should also be created for them
   - session_form componentWillReceiveProps-- see comment
   - these bookshelves should not be delete-able
 - bookshelf_membership_controller probably needs to be restricted to current_user
 - mybooks sub header (todo) should be visisble on bookindex
+
+- bookshelves can be added on the bookshelves#index
+  - all of users books should appear at exactly /users/:id/bookshelves
+  - maybe bookshelves mspd on bookshelf#show w/ a conditional somewhere to
+    iterate over them and render them all
+
+UUUGGGHHHH DELETING BOOKSHELF MEMBERSHIPS
+-the immediate issue is how to get the bookshelf memberships of the
+users bookshelves as shown on the book#show page.
+-we can get bookshelf_memberships of the user (by association)
+-we need the bookshelf memberships id in order to delete it,
+unless i change that logic, but I dont think thats possible.
+-maybe we could change the controller destroy action to find_by bookshelf_id and book_id
+on second thought, that doesnt work b/c
+---------SELECTORS !?!?!?!?!
+
+so i can do an active record query like this:
+Bookshelf.joins(:bookshelf_memberships).where("book_id = ?", 300)
+
+i want all the bookshelves belonging to a user and all of bookshelfMemberships of those bookshelves
+
+// this is not returning book_ids
+Bookshelf.find_by_sql(<<-SQL)
+  SELECT
+    bookshelves.*, bookshelf_memberships.book_id
+  FROM
+    bookshelves
+    JOIN bookshelf_memberships
+    ON bookshelves.id = bookshelf_memberships.bookshelf_id
+SQL
+
 
 
 QUESIONS

@@ -7,6 +7,10 @@ import BookIndexItem from '../books/book_index_item';
 // import BookshelfIndexContainer from './bookshelf_index_container';
 
 class BookshelfShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.props.bookshelf;
+  }
 
   componentDidMount() {
     const { userId, bookshelfId } = this.props.match.params;
@@ -17,10 +21,18 @@ class BookshelfShow extends React.Component {
     if (this.props.match.params.bookshelfId != nextProps.match.params.bookshelfId) {
       this.props.requestBookshelf(this.props.userId, nextProps.match.params.bookshelfId);
     }
+    this.setState(this.props.bookshelf);
+    debugger
+  }
+
+  componentWillUnmount() {
+    debugger
   }
 
   render() {
-    const { loading, bookshelf, errors } = this.props;
+    // const { loading, bookshelf, errors } = this.props;
+    const { loading, errors } = this.props;
+    const bookshelf = this.state;
     if (loading) {
       return (
         <div>Loading bookshelf...</div>

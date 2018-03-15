@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import BookshelfShowContainer from './bookshelf_show_container';
 
 
-const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname }) => {
+const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname, requestBookshelves }) => {
 
   // let linkTo;
   // if (pathname.endsWith('bookshelves')) {
@@ -13,14 +13,31 @@ const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname }) =>
   //   linkTo = `/${bookshelf.id}`;
   // }
   // debugger
-
-  return (
-    <li>
-      <Link to={`/users/${userId}/bookshelves/${bookshelf.id}`}>
-        {bookshelf.name}&nbsp;({bookshelf.book_ids.length})
-      </Link>
-    </li>
-  );
+  const handleDelete = (uId, bookshelfId) => {
+    return (e) => {
+      deleteBookshelf(uId, bookshelfId);
+      requestBookshelves(uId);
+    };
+  };
+  // debugger
+  if (bookshelf.name) {
+    return (
+      <li>
+        <div >
+          <img
+            className='delete-img'
+            src='https://s.gr-assets.com/assets/layout/delete-a9a86f59648bf17079954ea50a673dbc.png'
+            onClick={handleDelete(userId, bookshelf.id)}>
+          </img>
+          <Link to={`/users/${userId}/bookshelves/${bookshelf.id}`}>
+            {bookshelf.name}&nbsp;(
+              {bookshelf.book_ids ? bookshelf.book_ids.length : 0 }
+            )
+          </Link>
+        </div>
+      </li>
+    );
+  }
 };
 
 // <Route
@@ -28,9 +45,5 @@ const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname }) =>
 //   component={BookshelfShowContainer}
 // />
 
-// <button
-//   onClick={(uId, bookshelfId) => deleteBookshelf(userId, bookshelf.id)}
-//   >DELETE
-// </button>
 
 export default BookshelfIndexItem;

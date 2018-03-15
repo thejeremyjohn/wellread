@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
 import {
-  createBookshelfMembership
+  createBookshelfMembership, deleteBookshelfMembership
 } from '../../actions/bookshelf_membership_actions';
 
 const mdp = (dispatch) => {
   return{
     createBookshelfMembership: (shelfMembership) => (
       dispatch(createBookshelfMembership(shelfMembership))
+    ),
+    deleteBookshelfMembership: (shelfMembership) => (
+      dispatch(deleteBookshelfMembership(shelfMembership))
     )
   };
 };
@@ -34,17 +37,22 @@ class ShelfMenu extends React.Component {
       const name = e.target.name;
       const isChecked = e.target.checked;
       const newState = (merge({}, this.state));
-      newState[name] = isChecked;
-      this.setState(newState);
-
-      // debugger
-      //
       if (isChecked) {
         this.props.createBookshelfMembership({
           book_id: bookId,
           bookshelf_id: shelfId
         });
+      } else {
+        this.props.deleteBookshelfMembership({
+          book_id: bookId,
+          bookshelf_id: shelfId
+        });
       }
+      debugger
+      newState[name] = isChecked;
+      this.setState(newState);
+
+      //
 
       // this.setState(merge(
       //   {}, this.state,

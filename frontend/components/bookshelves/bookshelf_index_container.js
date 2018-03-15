@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 
 import BookshelfIndex from './bookshelf_index';
 import {
-  requestBookshelves, deleteBookshelf
+  requestBookshelves, deleteBookshelf, createBookshelf
 } from '../../actions/bookshelf_actions';
 
 const msp = (state, ownProps) => {
+  // debugger
   return {
     bookshelves: Object.values(state.entities.bookshelves),
     loading: state.ui.loading.bookshelves.bookshelfIndexLoading
@@ -14,7 +15,8 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
   requestBookshelves: (userId) => dispatch(requestBookshelves(userId)),
-  deleteBookshelf: (userId, id) => dispatch(deleteBookshelf(userId, id))
+  deleteBookshelf: (userId, id) => dispatch(deleteBookshelf(userId, id)),
+  createBookshelf: (userId, bookshelf) => dispatch(createBookshelf(userId, bookshelf))
 });
 
 export default connect(msp, mdp)(BookshelfIndex);

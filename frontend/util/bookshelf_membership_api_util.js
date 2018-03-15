@@ -1,3 +1,15 @@
+export const fetchBookshelfMemberships = (bookId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/books/${bookId}/bookshelf_memberships`
+  });
+};
+
+// $.ajax({
+//   method: 'GET',
+//   url: `/api/books/191/bookshelf_memberships`
+// });
+
 export const createBookshelfMembership = (bookshelf_membership) => {
   return $.ajax({
     method: 'POST',
@@ -28,10 +40,11 @@ export const createBookshelfMembership = (bookshelf_membership) => {
 // });
 
 
-export const deleteBookshelfMembership = (id) => {
+export const deleteBookshelfMembership = (bookshelfMembership) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/bookshelf_memberships/${id}`
+    url: `/api/bookshelf_memberships/:id`,
+    data: { bookshelfMembership }
   });
 };
 

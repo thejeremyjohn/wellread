@@ -1,5 +1,13 @@
 class Api::BookshelfMembershipsController < ApplicationController
 
+  def index
+    @bookshelf_memberships = current_user.bookshelf_memberships
+      .where(book_id: params[:book_id])
+    # @bookshelf_memberships = BookshelfMembership.joins(:bookshelves)
+    #   .where(book_id: params[:book_id])
+      # .select(:book_id)
+  end
+
   def create
     @bookshelf_membership = BookshelfMembership.new(bookshelf_membership_params)
     if @bookshelf_membership.save
@@ -21,7 +29,12 @@ class Api::BookshelfMembershipsController < ApplicationController
   end
 
   def destroy
-    @bookshelf_membership = BookshelfMembership.find(params[:id])
+    # @bookshelf_membership = BookshelfMembership.find(params[:id])
+    debugger
+    @bookshelf_membership = BookshelfMembership.find_by(
+      params[:bookshelfMembership][:book_id],
+      params[:bookshelfMembership][:bookshelf_id]
+    )
     if @bookshelf_membership
       @bookshelf_membership.destroy!
     else

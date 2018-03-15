@@ -1,4 +1,4 @@
-json.extract! book, :id, :title, :author, :img_url, :description, :bookshelf_ids
+json.extract! book, :id, :title, :author, :img_url, :description, :bookshelf_ids#, :bookshelf_memberships
 
 # json.extract! book, :id, :title, :author, :img_url, :description, json.bookshelf_ids book.bookshelves.ids
 

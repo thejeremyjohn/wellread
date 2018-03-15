@@ -8,6 +8,13 @@ export const RECEIVE_BOOKSHELF_ERRORS = 'RECEIVE_BOOKSHELF_ERRORS';
 export const CLEAR_BOOKSHELF_ERRORS = 'CLEAR_BOOKSHELF_ERRORS';
 
 
+export const CLEAR_BOOKSHELVES = 'CLEAR_BOOKSHELVES';
+export const clearBookshelves = () => ({
+  type: CLEAR_BOOKSHELVES,
+});
+
+
+
 export const receiveBookshelf = (bookshelf) => ({
   type: RECEIVE_BOOKSHELF,
   bookshelf
@@ -77,7 +84,10 @@ export const updateBookshelf = (userId, bookshelf) => {
 export const deleteBookshelf = (userId, id) => {
   return dispatch => {
     return BookshelfAPIUtil.deleteBookshelf(userId, id).then(
-      (bookshelves) => dispatch(receiveBookshelf(bookshelves)),
+      (bookshelf) => {
+        // dispatch(receiveBookshelf(bookshelf));
+        dispatch(clearBookshelves()); // experiment
+      },
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };

@@ -29,8 +29,9 @@ class Api::BookshelvesController < ApplicationController
     @bookshelf = current_user.bookshelves.find(params[:id])
     if @bookshelf
       @bookshelf.destroy!
-      @bookshelves = current_user.bookshelves
-      render 'api/bookshelves/index'
+      render 'api/bookshelves/show'
+      # @bookshelves = current_user.bookshelves
+      # render 'api/bookshelves/index'
     else
       render json: ["No bookshelf matching that id for current user"], status: 404
     end

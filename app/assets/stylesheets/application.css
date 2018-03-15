@@ -196,6 +196,7 @@ input[type="submit"] {
   justify-content: center;
   background-color: white;
   padding: 15px 0 25px 0;
+  /* padding: 0 467.5px 0 467.5px; */
 }
 .content-inner {
   /* width: 960px; */
@@ -262,16 +263,14 @@ label {
   text-align: left;
 }
 
-input[type="password"],
-input[type="text"] {
+/* input[type="password"],
+input[type="text"] { */
+.auth-input {
   width: 300px;
   box-sizing: border-box;
-  /* -webkit-appearance: none;
-  -moz-appearance: none; */
   padding: 10px 4px;
   font-size: 15px;
   margin-bottom: 20px;
-  /* border-radius: 3px; */
 }
 
 .demo.button {
@@ -359,11 +358,18 @@ td {
 .book-show-outer {
   display: flex;
   flex-direction: row;
+  padding: 0 10px 0 8px;
 }
 .book-show-inner-left {
   display: flex;
   flex-direction: column;
   margin: 0 20px 10px 0;
+}
+.book-show-inner-right {
+  width: 455px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 .book-cover {
   margin-bottom: 10px;
@@ -371,18 +377,39 @@ td {
 .book-title {
   font-family: "Merriweather", "Georgia", serif;
   font-size: 20px;
-  font-weight: 700
+  font-weight: 700;
+  padding-bottom: 2px;
+}
+.book-author {
+  font-size: 13.2px;
+  margin-bottom: 10px;
 }
 .book-description {
   font-family: "Merriweather", "Georgia", serif;
   font-size: 14px;
   line-height: 21px;
-}
-.book-author {
-  font-size: 13.2px
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
 
-/* bookshelf index */
+/* book#show -- shelf-menu */
+.shelf-menu {
+  border: 1px solid rgb(204,204,204);
+  border-radius: 3px;
+  box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+.shelf-menu-items {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+.shelf-menu-items:hover {
+  background-color: rgb(241,241,241);
+}
+
+/* bookshelf#index */
 .bookshelf-index {
   padding-right: 10px;
   margin-right: 10px;
@@ -397,17 +424,14 @@ td {
   text-decoration: underline;
 }
 
-.shelf-menu {
-  border: 1px solid rgb(204,204,204);
-  border-radius: 3px;
-  box-shadow: 0 3px 4px -3px rgba(0,0,0,0.5);
+.delete-img {
+  margin-right: 7px;
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
 }
-.shelf-menu-items {
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: 0;
-}
-.shelf-menu-items:hover {
-  background-color: rgb(241,241,241);
+
+.add-shelf-text {
+  height: 15px;
+  width: 100px;
 }

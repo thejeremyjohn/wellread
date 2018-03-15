@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :bookshelves, only: [:index, :create, :show, :update, :destroy]
     end
     resources :books, only: [:index, :show] do
-      resources :bookshelf_memberships, only: [:create, :show, :update]
+      resources :bookshelf_memberships, only: [:index, :create, :show, :update]
     end
     resources :bookshelf_memberships, only: [:destroy]
   end

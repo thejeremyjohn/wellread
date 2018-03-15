@@ -6,7 +6,9 @@ const msp = (state, ownProps) => {
   return {
     bookshelf: state.entities.bookshelves[ownProps.match.params.bookshelfId],
     loading: state.ui.loading.bookshelves.bookshelfShowLoading,
-    errors: state.errors.bookshelf
+    errors: state.errors.bookshelf,
+    // bookshelves: state.entities.bookshelves,
+    // location: ownProps.location.pathname
   };
 };
 

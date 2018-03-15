@@ -8,7 +8,8 @@ import membership from './bookshelf_memberships/bookshelf_membership_errors_redu
 const errorsReducer = combineReducers({
   session,
   book,
-  bookshelf
+  bookshelf,
+  membership
 });
 
 export default errorsReducer;
