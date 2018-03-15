@@ -43,6 +43,10 @@ Bookshelf.find_by_sql(<<-SQL)
 SQL
 
 
+DELETING BOOKSHELVES
+somehow a key of undefined is ending up in my bookshelves state. It contains all the bookshelves from earlier
+
+
 
 QUESIONS
 

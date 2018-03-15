@@ -5,7 +5,6 @@ import {
 } from '../../actions/bookshelf_membership_actions';
 
 const bookshelfMembershipsReducer = (state={}, action) => {
-  // debugger
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_BOOKSHELF_MEMBERSHIP:

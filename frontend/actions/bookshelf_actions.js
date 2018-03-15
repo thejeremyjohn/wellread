@@ -84,10 +84,12 @@ export const updateBookshelf = (userId, bookshelf) => {
 export const deleteBookshelf = (userId, id) => {
   return dispatch => {
     return BookshelfAPIUtil.deleteBookshelf(userId, id).then(
-      (bookshelf) => {
-        // dispatch(receiveBookshelf(bookshelf));
-        dispatch(clearBookshelves()); // experiment
-      },
+      (bookshelf) =>
+      null,
+      // {
+      //   // dispatch(receiveBookshelf(bookshelf));
+      //   dispatch(clearBookshelves()); // experiment
+      // },
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };

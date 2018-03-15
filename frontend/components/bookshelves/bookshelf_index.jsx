@@ -44,6 +44,7 @@ class BookshelfIndex extends React.Component {
         userId={this.props.match.params.userId}
         deleteBookshelf={this.props.deleteBookshelf}
         requestBookshelves={this.props.requestBookshelves}
+        clearBookshelves={this.props.clearBookshelves}
         pathname={this.props.history.location.pathname}
       />
     ));

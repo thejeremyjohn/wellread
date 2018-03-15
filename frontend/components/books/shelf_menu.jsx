@@ -10,8 +10,8 @@ const mdp = (dispatch) => {
     createBookshelfMembership: (shelfMembership) => (
       dispatch(createBookshelfMembership(shelfMembership))
     ),
-    deleteBookshelfMembership: (shelfMembership) => (
-      dispatch(deleteBookshelfMembership(shelfMembership))
+    deleteBookshelfMembership: (bookId, bookshelfId) => (
+      dispatch(deleteBookshelfMembership(bookId, bookshelfId))
     )
   };
 };
@@ -37,18 +37,15 @@ class ShelfMenu extends React.Component {
       const name = e.target.name;
       const isChecked = e.target.checked;
       const newState = (merge({}, this.state));
+      const membership = {
+        book_id: bookId,
+        bookshelf_id: shelfId
+      };
       if (isChecked) {
-        this.props.createBookshelfMembership({
-          book_id: bookId,
-          bookshelf_id: shelfId
-        });
+        this.props.createBookshelfMembership(membership);
       } else {
-        this.props.deleteBookshelfMembership({
-          book_id: bookId,
-          bookshelf_id: shelfId
-        });
+        this.props.deleteBookshelfMembership(bookId, shelfId);
       }
-      debugger
       newState[name] = isChecked;
       this.setState(newState);
 

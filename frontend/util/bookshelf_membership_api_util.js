@@ -1,3 +1,12 @@
+// goes to the controller's index action but invokes destroy
+// export const deleteBookshelfMembership = (bookId, bookshelfId) => {
+//   return $.ajax({
+//     method: 'GET',
+//     url: `/api/books/${bookId}/bookshelf_memberships`,
+//     data: { bookshelf_id: bookshelfId }
+//   });
+// };
+
 export const fetchBookshelfMemberships = (bookId) => {
   return $.ajax({
     method: 'GET',
@@ -40,11 +49,12 @@ export const createBookshelfMembership = (bookshelf_membership) => {
 // });
 
 
-export const deleteBookshelfMembership = (bookshelfMembership) => {
+// works but has uncaught error because an id is not being passed up on the ajax call
+export const deleteBookshelfMembership = (bookId, shelfId) => {
   return $.ajax({
     method: 'DELETE',
     url: `/api/bookshelf_memberships/:id`,
-    data: { bookshelfMembership }
+    data: { book_id: bookId, bookshelf_id: shelfId }
   });
 };
 

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import BookshelfIndex from './bookshelf_index';
 import {
-  requestBookshelves, deleteBookshelf, createBookshelf
+  requestBookshelves, deleteBookshelf, createBookshelf, clearBookshelves
 } from '../../actions/bookshelf_actions';
 
 const msp = (state, ownProps) => {
@@ -16,7 +16,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
   requestBookshelves: (userId) => dispatch(requestBookshelves(userId)),
   deleteBookshelf: (userId, id) => dispatch(deleteBookshelf(userId, id)),
-  createBookshelf: (userId, bookshelf) => dispatch(createBookshelf(userId, bookshelf))
+  createBookshelf: (userId, bookshelf) => dispatch(createBookshelf(userId, bookshelf)),
+  clearBookshelves: () => dispatch(clearBookshelves())
 });
 
 export default connect(msp, mdp)(BookshelfIndex);

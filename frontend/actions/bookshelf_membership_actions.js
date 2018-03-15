@@ -5,6 +5,9 @@ export const RECEIVE_BOOKSHELF_MEMBERSHIPS = 'RECEIVE_BOOKSHELF_MEMBERSHIPS';
 export const RECEIVE_BOOKSHELF_MEMBERSHIP_ERRORS = 'RECEIVE_BOOKSHELF_MEMBERSHIP_ERRORS';
 export const CLEAR_BOOKSHELF_MEMBERSHIP_ERRORS = 'CLEAR_BOOKSHELF_MEMBERSHIP_ERRORS';
 export const START_LOADING_BOOKSHELF_MEMBERSHIPS = 'START_LOADING_BOOKSHELF_MEMBERSHIPS';
+export const START_LOADING_BOOKSHELF_MEMBERSHIP = 'START_LOADING_BOOKSHELF_MEMBERSHIP';
+
+import {requestBookshelves} from './bookshelf_actions';
 
 
 export const receiveBookshelfMembership = (bookshelfMembership) => ({
@@ -30,6 +33,10 @@ export const startLoadingBookshelfMemberships = () => ({
   type: START_LOADING_BOOKSHELF_MEMBERSHIPS,
 });
 
+export const startLoadingBookshelfMembership = () => ({
+  type: START_LOADING_BOOKSHELF_MEMBERSHIP,
+});
+
 
 
 export const fetchBookshelfMemberships = (bookId) => {
@@ -51,10 +58,12 @@ export const fetchBookshelfMemberships = (bookId) => {
 
 export const createBookshelfMembership = (bookshelfMembership) => {
   return dispatch => {
-    // dispatch(startLoadingBookshelfMembership());
+    dispatch(startLoadingBookshelfMembership());
     return BookshelfMembershipAPIUtil.createBookshelfMembership(bookshelfMembership).then(
-      (membership) => dispatch(receiveBookshelfMembership(membership)),
-      // null,
+      (membership) => {
+        dispatch(receiveBookshelfMembership(membership));
+        // requestBookshelves();
+      },
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
@@ -70,11 +79,49 @@ export const createBookshelfMembership = (bookshelfMembership) => {
 //   };
 // };
 //
-export const deleteBookshelfMembership = (bookshelfMembership) => {
+
+// works but has uncaught error because an id is not being passed up on the ajax call
+export const deleteBookshelfMembership = (bookId, shelfId) => {
   return dispatch => {
-    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookshelfMembership).then(
+    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookId, shelfId).then(
       (membership) => dispatch(receiveBookshelfMembership(membership)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };
 };
+
+// export const deleteBookshelfMembership = (bookId, bookshelfId) => {
+//   return dispatch => {
+//     // dispatch(startLoadingBookshelfMembership());
+//     return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookId, bookshelfId).then(
+//       (membership) => null,
+//       // {
+//       //   debugger
+//       //   dispatch(receiveBookshelfMemberships(membership));
+//       //
+//       // },
+//       (err) => dispatch(receiveErrors(err.responseJSON))
+//     );
+//   };
+// };
+
+// export const deleteBookshelfMembership = (bookId, bookshelfId) => {
+//   return dispatch => {
+//     // dispatch(startLoadingBookshelfMembership());
+//     return BookshelfMembershipAPIUtil.fetchBookshelfMembership(bookId, bookshelfId).then(
+//       (membership) => {
+//         debugger
+//         dispatch(receiveBookshelfMemberships(membership));
+//
+//       },
+//       (err) => dispatch(receiveErrors(err.responseJSON))
+//     );
+//   };
+// };
+
+//     return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookshelfMembership).then(
+//       (membership) => dispatch(receiveBookshelfMembership(membership)),
+//       (err) => dispatch(receiveErrors(err.responseJSON))
+//     );
+//   };
+// };

@@ -31,10 +31,13 @@ Book.create(
 
 48.times do |i|
   book = Faker::Book
+  description = []
+    3.times { |i| description.push Faker::Lorem.paragraph(sentence_count=9) }
+    description = description.join("\n\n")
   Book.create(
     title: book.title,
     author: book.author,
-    description: Faker::Lorem.paragraph,
+    description: description,
     img_url: 'https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg'
   )
 end

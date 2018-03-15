@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import BookshelfShowContainer from './bookshelf_show_container';
 
 
-const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname, requestBookshelves }) => {
+const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname, requestBookshelves, clearBookshelves }) => {
 
   // let linkTo;
   // if (pathname.endsWith('bookshelves')) {
@@ -16,6 +16,7 @@ const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname, requ
   const handleDelete = (uId, bookshelfId) => {
     return (e) => {
       deleteBookshelf(uId, bookshelfId);
+      clearBookshelves();
       requestBookshelves(uId);
     };
   };
