@@ -16,9 +16,13 @@ class BookShow extends React.Component {
     }
   }
 
+  toggleDescriptionLen() {
+    $('.book-description').toggleClass('height-inherit');
+    $('.more').toggleClass('display-none');
+    $('.less').toggleClass('display-none');
+  }
+
   render() {
-    // $('.content-outer').addClass('white-bg');
-    // $('').addClass('white-bg');
     const { loading, book, errors } = this.props;
 
     if (loading) {
@@ -49,7 +53,7 @@ class BookShow extends React.Component {
               height='247.25px;'
               width='150px'
             ></img>
-          <h3>current shelf / want to read:</h3>
+          <h3>current shelf memberships:</h3>
             <form
               className='shelf-menu'>
               {bookshelves}
@@ -59,6 +63,16 @@ class BookShow extends React.Component {
             <p className='book-title'>{book.title}</p>
             <p className='book-author'>by {book.author}</p>
             <p className='book-description'>{book.description}</p>
+            <p
+              className='more'
+              onClick={this.toggleDescriptionLen.bind(this)}
+              >MORE
+            </p>
+            <p
+              className='less display-none'
+              onClick={this.toggleDescriptionLen.bind(this)}
+              >LESS
+            </p>
           </div>
         </div>
       );

@@ -390,6 +390,24 @@ td {
   line-height: 21px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgb(221, 221, 221);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 186px;
+  /* border: 1px solid #000000; */
+}
+
+.more {
+  cursor: pointer;
+}
+.less {
+  cursor: pointer;
+}
+.display-none {
+  display: none;
+}
+.height-inherit {
+  height: inherit;
 }
 
 /* book#show -- shelf-menu */
