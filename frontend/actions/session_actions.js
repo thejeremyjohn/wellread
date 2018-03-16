@@ -42,7 +42,10 @@ export const logout = () => {
   return (dispatch) => {
     // dispatch(clearErrors());
     return SessionAPIUtil.logout().then(
-      (resUser) => dispatch(receiveCurrentUser(null)),
+      (resUser) => {
+        dispatch(receiveCurrentUser(null));
+        // dispatch(reset/clear all entities)
+      },
       (err) => dispatch(receiveErrors(err.responseJSON))
     );
   };

@@ -1,3 +1,15 @@
+WHAT YOU CAN DO
+- login/signup
+- add a book to a shelf
+- remove a book from a shelf
+- refresh required
+- create a shelf
+- destroy a shelf
+
+WHAT YOU CANT DO
+- reviews
+- read status
+
 TODO
 - "sticky" header
 - ui renderModal === false
@@ -26,6 +38,7 @@ unless i change that logic, but I dont think thats possible.
 -maybe we could change the controller destroy action to find_by bookshelf_id and book_id
 on second thought, that doesnt work b/c
 ---------SELECTORS !?!?!?!?!
+
 
 so i can do an active record query like this:
 Bookshelf.joins(:bookshelf_memberships).where("book_id = ?", 300)
