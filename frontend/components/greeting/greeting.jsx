@@ -14,7 +14,7 @@ export default class Greeting extends React.Component {
     //   Click here to go to bookshelves -- extremely under construction
     // </Link>
     if ( currentUser ) {
-      $('.content-left').addClass('width-170');
+      // $('.content-left').addClass('width-170');
       return (
         <div>
           <h3>well met, { currentUser.username }!</h3>

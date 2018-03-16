@@ -102,9 +102,10 @@ body {
 }
 
 .howtoposelikethis {
-  /* filter: sepia(75%); */
   filter: sepia(75%) grayscale(25%);
-  /* -webkit-filter: grayscale(100%); */
+}
+.width-170 {
+  width: 170.094px;
 }
 
 button,
@@ -229,9 +230,6 @@ input[type="submit"] {
   /* min-width: 200px; */
   height: 100%;
   /* background-color: rgba(255,255,255,0.5); */
-}
-.width-170 {
-  width: 170.094px;
 }
 
 .auth-outer{
@@ -406,11 +404,10 @@ td {
   line-height: 21px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgb(221, 221, 221);
-
+  white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 186px;
-  /* border: 1px solid #000000; */
 }
 
 .more {

@@ -12,8 +12,7 @@ WHAT YOU CANT DO
 
 TODO
 - clear action for all entity reducers
-- "sticky" header
-
+- style button to open shelf-menu
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
     - ui includes modals like dropdown menues
