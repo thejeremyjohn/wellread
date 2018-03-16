@@ -34,6 +34,7 @@ const App = () => (
           </Switch>
 
           <ProtectedRoute path='/' exact component={GreetingContainer} />
+          <ProtectedRoute path='/users/:userId/bookshelves' exact component={GreetingContainer} />
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
 

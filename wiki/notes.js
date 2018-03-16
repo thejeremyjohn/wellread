@@ -2,7 +2,7 @@ WHAT YOU CAN DO
 - login/signup
 - add a book to a shelf
 - remove a book from a shelf
-- refresh required
+  - refresh required
 - create a shelf
 - destroy a shelf
 
@@ -11,32 +11,24 @@ WHAT YOU CANT DO
 - read status
 
 TODO
+- clear action for all entity reducers
 - "sticky" header
-- ui renderModal === false
 
 - addTo bookshelf button dropdown should be shown on book show and book index
   - use a modal (if possible) which can live inside the book#show slice of state
     - ui includes modals like dropdown menues
+      - ui renderModal === false
 
-- when a user is created, three bookshelves should also be created for them
-  - session_form componentWillReceiveProps-- see comment
-  - these bookshelves should not be delete-able
-- bookshelf_membership_controller probably needs to be restricted to current_user
 - mybooks sub header (todo) should be visisble on bookindex
 
-- bookshelves can be added on the bookshelves#index
-  - all of users books should appear at exactly /users/:id/bookshelves
+- all of users books should appear at exactly /users/:id/bookshelves
   - maybe bookshelves mspd on bookshelf#show w/ a conditional somewhere to
     iterate over them and render them all
 
 UUUGGGHHHH DELETING BOOKSHELF MEMBERSHIPS
--the immediate issue is how to get the bookshelf memberships of the
-users bookshelves as shown on the book#show page.
--we can get bookshelf_memberships of the user (by association)
--we need the bookshelf memberships id in order to delete it,
-unless i change that logic, but I dont think thats possible.
--maybe we could change the controller destroy action to find_by bookshelf_id and book_id
-on second thought, that doesnt work b/c
+- we can get bookshelf_memberships of the user (by association)
+- we need the bookshelf memberships id in order to delete it,
+- currently working by finding by book_id and shelf_id, but theres an uncaught error
 ---------SELECTORS !?!?!?!?!
 
 

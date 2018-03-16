@@ -101,6 +101,12 @@ body {
   -webkit-filter: grayscale(100%);
 }
 
+.howtoposelikethis {
+  /* filter: sepia(75%); */
+  filter: sepia(75%) grayscale(25%);
+  /* -webkit-filter: grayscale(100%); */
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;
@@ -117,14 +123,21 @@ input[type="submit"] {
 }
 
 .header-outer {
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
   height: 50px;
-  /* box-shadow: 0 1px 2px rgba(0,0,0,0.15); */
+  z-index: 100;
+}
+.header-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   /* background-color: rgb(244,241,234); */
   background-image: url('https://s.gr-assets.com/assets/layout/tan-bg-texture.jpg');
-  /* position: fixed; */
 }
 .header {
   width: 100%;
@@ -195,7 +208,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   background-color: white;
-  padding: 15px 0 25px 0;
+  padding: 65px 0 25px 0;
   /* padding: 0 467.5px 0 467.5px; */
 }
 .content-inner {
@@ -216,6 +229,9 @@ input[type="submit"] {
   /* min-width: 200px; */
   height: 100%;
   /* background-color: rgba(255,255,255,0.5); */
+}
+.width-170 {
+  width: 170.094px;
 }
 
 .auth-outer{

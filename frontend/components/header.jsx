@@ -66,10 +66,12 @@ class Header extends React.Component {
   render() {
     return (
       <div className='header-outer'>
-        <div className='header'>
-          <Link className='logo' to='/' read='read'>well</Link>
-          {this.headerLeft()}
-          {this.headerRight()}
+        <div className='header-inner'>
+          <div className='header'>
+            <Link className='logo' to='/' read='read'>well</Link>
+            {this.headerLeft()}
+            {this.headerRight()}
+          </div>
         </div>
       </div>
       );
