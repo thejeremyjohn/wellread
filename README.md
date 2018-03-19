@@ -20,7 +20,7 @@ The site is preloaded with collection of books. Users can view all of the availa
 <img src="https://i.imgur.com/qMltUHT.png" />
 
 Clicking the cover image or title of a book allows the user to see more details and provides an opportunity to edit that book's shelf membership.
-<img src="https://i.imgur.com/4WR9sR7.png" />
+<img src="https://i.imgur.com/4WR9sR7.png?1" />
 In the screenshot above, the user has opened the shelf menu dropdown, where they can choose which shelf or shelves a book belongs to.
 
 ### Bookshelves
