@@ -374,10 +374,14 @@ td {
   flex-direction: row;
   padding: 0 10px 0 8px;
 }
+.book-show-inner-left-container {
+  margin: 0 20px 10px 0;
+}
 .book-show-inner-left {
   display: flex;
   flex-direction: column;
-  margin: 0 20px 10px 0;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 .book-show-inner-right {
   width: 455px;
@@ -423,7 +427,68 @@ td {
   height: inherit;
 }
 
+.bg-purple {
+  background-color: purple;
+}
+
+
 /* book#show -- shelf-menu */
+.shelf-menu-container-outer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+}
+.shelf-menu-container {
+  width: 105px;
+  border-top: 1px solid rgb(221, 221, 221);
+  border-left: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid rgb(221, 221, 221);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 6px 0px 7px 8px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 13px;
+}
+.shelf-menu-check {
+  height: 11px;
+  width: 13px;
+  padding-right: 2px;
+}
+.shelf-menu-title {
+  font-weight: 700;
+}
+.shelf-menu-button-container-outer {
+  /* width: 100%;
+  display: flex;
+  justify-content: flex-end; */
+}
+.shelf-menu-button-container {
+  cursor: pointer;
+  background-color: rgb(64, 157, 105);
+  margin-right: -10px;
+  height: 28px;
+  width: 27px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shelf-menu-button-container:hover {
+  background-color: rgba(56, 136, 61,1);
+}
+.shelf-menu-button {
+  /* background-color: rgb(33, 33, 33); */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAICAQAAABaf7ccAAAAKUlEQVR4AX3KsQEAIAzDsJzez8MuoF6tdLo1icQdiBvilrglnw1xS9wHeq2Hge3+H0sAAAAASUVORK5CYII=');
+  background-size: 8px 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 5px;
+}
 .shelf-menu {
   border: 1px solid rgb(204,204,204);
   border-radius: 3px;
@@ -436,7 +501,7 @@ td {
   background: transparent;
   border: 0;
 }
-.shelf-menu-items:hover {
+.shelf-menu-items {
   background-color: rgb(241,241,241);
 }
 

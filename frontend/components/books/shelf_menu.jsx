@@ -62,7 +62,7 @@ class ShelfMenu extends React.Component {
     const { shelf, book } = this.props;
     // {book.id + '-->' + shelf.id} <br/>
     return (
-      <label>
+      <label className='shelf-menu-items-b'>
         <input
           type='checkbox'
           name={shelf.id}

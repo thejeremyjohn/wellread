@@ -29,7 +29,7 @@ class BookShow extends React.Component {
       return <div>Loading book...</div>;
     }
 
-    const bookshelves = this.props.bookshelves.map(shelf => (
+    const shelfMenu = this.props.bookshelves.map(shelf => (
       <ShelfMenu
         key={shelf.id}
         book={book}
@@ -47,17 +47,38 @@ class BookShow extends React.Component {
       // <p>{book.bookshelf_ids.join(' ')}</p>
       return (
         <div className='book-show-outer'>
-          <div className='book-show-inner-left'>
-            <img className='book-cover'
-              src={book.img_url}
-              height='247.25px;'
-              width='150px'
-            ></img>
-          <h3>current shelf memberships:</h3>
-            <form
-              className='shelf-menu'>
-              {bookshelves}
-            </form>
+          <div className='book-show-inner-left-container'>
+            <div className='book-show-inner-left'>
+              <img
+                className='book-cover'
+                src={book.img_url}
+                height='247.25px;'
+                width='150px'
+                ></img>
+
+              <div className='shelf-menu-container-outer'>
+                <div
+                  className='shelf-menu-container'>
+                  <img
+                    className='shelf-menu-check'
+                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAALCAYAAACksgdhAAAASElEQVR42pXRywkAIAwDUJd1ATdxg24aKQQ8BKIp5Pjob%2FzWXrM6ACIApjJAFAMAeQeiu%2BQLEOmSDihiHJDxDBDkf%2BGRHsShA2nHmi8jtgEiAAAAAElFTkSuQmCC'
+                    ></img>
+                  <span className='shelf-menu-title'>somethin</span>
+                </div>
+
+                <div className='shelf-menu-button-container-outer'
+                  onClick={() => $('.shelf-menu').toggleClass('display-none')}>
+                  <div className='shelf-menu-button-container'>
+                    <div className='shelf-menu-button'></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <form
+            className='shelf-menu display-none'>
+            {shelfMenu}
+          </form>
           </div>
           <div className='book-show-inner-right'>
             <p className='book-title'>{book.title}</p>
