@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+An early stage clone of the site Goodreads, wellread is platform for organizing and discovering books. Backend development of wellread relies on Ruby on Rails with a Postgresql database, while the frontent uses React Redux. 
+
+### Key Features
+- Hosted on Heroku
+- User Authentication
+- A collection of books
+- Bookshelves 
+
+### Heroku
+Find the live site here:
+
+### User Authentication
+<img src="https://imgur.com/3HaZY2b" />
