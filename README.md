@@ -27,3 +27,6 @@ In the screenshot above, the user has opened the shelf menu dropdown, where they
 New users have three bookshelves by default (`read`, `currently reading` and `want to read`), and they can add or delete booksheves anytime they like.
 
 <img src="https://i.imgur.com/EPvhWAG.png" />
+
+#### Future Development
+- Users will be able to write reviews and ratings.
