@@ -12,7 +12,7 @@ Find the live site here:
 [https://wellread0.herokuapp.com](https://wellread0.herokuapp.com)
 
 ### User Auth
-Users can securely signin in or signup through the form on the landing page. A DEMO login button is alsp provided.
+Users can securely signin in or signup through the form on the landing page. A DEMO login button is also provided.
 <img src="https://i.imgur.com/3HaZY2b.png" />
 
 ### Books
