@@ -13,7 +13,7 @@ Find the live site here:
 
 ### User Auth
 Users can securely signin in or signup through the form on the landing page. A DEMO login button is also provided.
-<img src="https://i.imgur.com/3HaZY2b.png" />
+<img src="https://i.imgur.com/3HaZY2b.png?1" />
 
 ### Books
 The site is preloaded with collection of books. Users can view all of the available books by clicking `Browse`. 
