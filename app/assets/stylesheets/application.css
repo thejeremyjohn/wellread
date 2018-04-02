@@ -103,6 +103,7 @@ body {
 
 .howtoposelikethis {
   filter: sepia(75%) grayscale(25%);
+  border-radius: 10px;
 }
 .width-170 {
   width: 170.094px;
