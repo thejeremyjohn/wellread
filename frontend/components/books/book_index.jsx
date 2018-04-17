@@ -10,11 +10,12 @@ class BookIndex extends React.Component {
   }
 
   render() {
-    const books = this.props.books.map(book => (
+    const { loading, books } = this.props;
+
+    const bookIndex = books.map(book => (
       <BookIndexItem key={book.id} book={book} />
     ));
 
-    const { loading } = this.props;
     if (loading) {
       return <div>Loading book index...</div>;
     }
@@ -35,7 +36,7 @@ class BookIndex extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {books}
+            {bookIndex}
           </tbody>
         </table>
       </section>

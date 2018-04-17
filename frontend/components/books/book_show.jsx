@@ -4,10 +4,15 @@ import ShelfMenu from './shelf_menu';
 class BookShow extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleShelfMenu = this.toggleShelfMenu.bind(this);
+    // document.addEventListener('mousedown', this.toggleShelfMenu);
   }
 
   componentDidMount() {
     this.props.requestBook(this.props.match.params.bookId);
+    console.log('next is currentUserId------------------------');
+    console.log(this.props.currentUserId);
+    this.props.requestBookshelves(this.props.currentUserId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -15,6 +20,9 @@ class BookShow extends React.Component {
       this.props.requestBook(nextProps.match.params.bookId);
     }
   }
+  // componentWillUnmount() {
+  //   document.removeEventListener('mousedown', this.toggleShelfMenu);
+  // }
 
   toggleDescriptionLen() {
     $('.book-description').toggleClass('height-inherit');
@@ -22,23 +30,43 @@ class BookShow extends React.Component {
     $('.less').toggleClass('display-none');
   }
 
-  render() {
-    const { loading, book, errors } = this.props;
+  toggleShelfMenu(e) {
+    $('.shelf-menu').toggleClass('display-none');
+    // if (e.currentTarget.className === 'shelf-menu-button-container-outer') {
+    //   $('.shelf-menu').toggleClass('display-none');
+    // } else {
+    //   $('.shelf-menu').addClass('display-none');
+    // }
+  }
+  // () => $('.shelf-menu').toggleClass('display-none')
 
-    if (loading) {
+  render() {
+    const {
+      loadingBook, book,
+      loadingBookshelves, bookshelves,
+      errors
+    } = this.props;
+
+    if (loadingBook || loadingBookshelves) {
       return <div>Loading book...</div>;
     }
+    // console.log('can you see me?');
+    // console.log(bookshelves);
+    // console.log(book);
+    // console.log(loadingBook);
+    // console.log(loadingBookshelves);
 
-    const shelfMenu = this.props.bookshelves.map(shelf => (
-      <ShelfMenu
-        key={shelf.id}
-        book={book}
-        shelf={shelf}
-        userBookshelfIds={this.props.bookshelves.map(b => b.id)}
-      />
-    ));
+    if (book && bookshelves) {
+      // debugger
 
-    if (book) {
+      const shelfMenu = bookshelves.map(shelf => (
+        <ShelfMenu
+          key={shelf.id}
+          book={book}
+          shelf={shelf}
+          userBookshelfIds={bookshelves.map(b => b.id)}
+          />
+      ));
       // debugger
       // const memberships = this.props.memberships.map(membership => (
       //   membership.id
@@ -63,11 +91,11 @@ class BookShow extends React.Component {
                     className='shelf-menu-check'
                     src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAALCAYAAACksgdhAAAASElEQVR42pXRywkAIAwDUJd1ATdxg24aKQQ8BKIp5Pjob%2FzWXrM6ACIApjJAFAMAeQeiu%2BQLEOmSDihiHJDxDBDkf%2BGRHsShA2nHmi8jtgEiAAAAAElFTkSuQmCC'
                     ></img>
-                  <span className='shelf-menu-title'>somethin</span>
+                  <span className='shelf-menu-title'>bookshelves</span>
                 </div>
 
                 <div className='shelf-menu-button-container-outer'
-                  onClick={() => $('.shelf-menu').toggleClass('display-none')}>
+                  onClick={this.toggleShelfMenu}>
                   <div className='shelf-menu-button-container'>
                     <div className='shelf-menu-button'></div>
                   </div>

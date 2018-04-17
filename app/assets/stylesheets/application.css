@@ -102,8 +102,10 @@ body {
 }
 
 .howtoposelikethis {
-  filter: sepia(75%) grayscale(25%);
+  filter: sepia(75%);
+  /* filter: sepia(75%) grayscale(25%); */
   border-radius: 10px;
+  border: 5px solid brown;
 }
 .width-170 {
   width: 170.094px;
@@ -480,7 +482,7 @@ td {
   justify-content: center;
 }
 .shelf-menu-button-container:hover {
-  background-color: rgba(56, 136, 61,1);
+  background-color: rgb(56, 136, 61);
 }
 .shelf-menu-button {
   /* background-color: rgb(33, 33, 33); */
