@@ -10,8 +10,11 @@ const mdp = (dispatch) => {
     createBookshelfMembership: (shelfMembership) => (
       dispatch(createBookshelfMembership(shelfMembership))
     ),
-    deleteBookshelfMembership: (bookId, bookshelfId) => (
-      dispatch(deleteBookshelfMembership(bookId, bookshelfId))
+    // deleteBookshelfMembership: (bookId, bookshelfId) => (
+    //   dispatch(deleteBookshelfMembership(bookId, bookshelfId))
+    // )
+    deleteBookshelfMembership: (membershipId) => (
+      dispatch(deleteBookshelfMembership(membershipId))
     )
   };
 };
@@ -21,13 +24,22 @@ class ShelfMenu extends React.Component {
     super(props);
     this.state = {};
     // default unchecked for all of the user's bookshelves
-    props.userBookshelfIds.forEach(id => {
-      this.state[id] = false;
+    props.userBookshelfIds.forEach(bookshelfId => {
+      this.state[bookshelfId] = false;
     });
     // checked for all of the book's bookshelves (i.e. memberships)
-    props.book.bookshelf_ids.forEach(id => {
-      this.state[id] = true;
+
+    const membershipByShelfId = {};
+    props.book.bookshelf_memberships.forEach(membership => {
+      membershipByShelfId[membership.bookshelf_id] = membership.id;
+      this.state[membership.bookshelf_id] = true;
     });
+    this.state['membershipByShelfId'] = membershipByShelfId;
+    // debugger
+
+    // props.book.bookshelf_ids.forEach(id => {
+    //   this.state[id] = true;
+    // });
     // debugger
     this.handleShelfMembership = this.handleShelfMembership.bind(this);
   }
@@ -44,21 +56,18 @@ class ShelfMenu extends React.Component {
       if (isChecked) {
         this.props.createBookshelfMembership(membership);
       } else {
-        this.props.deleteBookshelfMembership(bookId, shelfId);
+        // this.props.deleteBookshelfMembership(bookId, shelfId);
+        this.props.deleteBookshelfMembership(
+          this.state.membershipByShelfId[shelfId]
+        );
       }
       newState[name] = isChecked;
       this.setState(newState);
-
-      //
-
-      // this.setState(merge(
-      //   {}, this.state,
-      //   { [e.target.name]: value }
-      // ));
     };
   }
 
   render() {
+    // debugger
     const { shelf, book } = this.props;
     // {book.id + '-->' + shelf.id} <br/>
     return (

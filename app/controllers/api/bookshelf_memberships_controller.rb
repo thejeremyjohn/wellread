@@ -41,13 +41,14 @@ class Api::BookshelfMembershipsController < ApplicationController
   end
 
   def destroy
-    # @bookshelf_membership = BookshelfMembership.find(params[:id])
-    @bookshelf_membership = BookshelfMembership.find_by(
-      book_id: params[:book_id],
-      bookshelf_id: params[:bookshelf_id]
-    )
+    @bookshelf_membership = BookshelfMembership.find(params[:id])
+    # @bookshelf_membership = BookshelfMembership.find_by(
+    #   book_id: params[:book_id],
+    #   bookshelf_id: params[:bookshelf_id]
+    # )
     if @bookshelf_membership
       @bookshelf_membership.destroy!
+      render 'api/bookshelf_memberships/show'
     else
       render json: @user.errors.full_messages, status: 404
     end

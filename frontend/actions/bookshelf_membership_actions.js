@@ -81,9 +81,18 @@ export const createBookshelfMembership = (bookshelfMembership) => {
 //
 
 // works but has uncaught error because an id is not being passed up on the ajax call
-export const deleteBookshelfMembership = (bookId, shelfId) => {
+// export const deleteBookshelfMembership = (bookId, shelfId) => {
+//   return dispatch => {
+//     return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookId, shelfId).then(
+//       (membership) => dispatch(receiveBookshelfMembership(membership)),
+//       (err) => dispatch(receiveErrors(err.responseJSON))
+//     );
+//   };
+// };
+
+export const deleteBookshelfMembership = (id) => {
   return dispatch => {
-    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(bookId, shelfId).then(
+    return BookshelfMembershipAPIUtil.deleteBookshelfMembership(id).then(
       (membership) => dispatch(receiveBookshelfMembership(membership)),
       (err) => dispatch(receiveErrors(err.responseJSON))
     );

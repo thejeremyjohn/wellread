@@ -10,8 +10,6 @@ class BookShow extends React.Component {
 
   componentDidMount() {
     this.props.requestBook(this.props.match.params.bookId);
-    console.log('next is currentUserId------------------------');
-    console.log(this.props.currentUserId);
     this.props.requestBookshelves(this.props.currentUserId);
   }
 
@@ -50,29 +48,18 @@ class BookShow extends React.Component {
     if (loadingBook || loadingBookshelves) {
       return <div>Loading book...</div>;
     }
-    // console.log('can you see me?');
-    // console.log(bookshelves);
-    // console.log(book);
-    // console.log(loadingBook);
-    // console.log(loadingBookshelves);
 
     if (book && bookshelves) {
-      // debugger
-
+      const userBookshelfIds = bookshelves.map(b => b.id);
       const shelfMenu = bookshelves.map(shelf => (
         <ShelfMenu
           key={shelf.id}
           book={book}
           shelf={shelf}
-          userBookshelfIds={bookshelves.map(b => b.id)}
+          userBookshelfIds={userBookshelfIds}
           />
       ));
-      // debugger
-      // const memberships = this.props.memberships.map(membership => (
-      //   membership.id
-      // )).join(' ');
 
-      // <p>{book.bookshelf_ids.join(' ')}</p>
       return (
         <div className='book-show-outer'>
           <div className='book-show-inner-left-container'>

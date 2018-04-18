@@ -50,19 +50,20 @@ export const createBookshelfMembership = (bookshelf_membership) => {
 
 
 // works but has uncaught error because an id is not being passed up on the ajax call
-export const deleteBookshelfMembership = (bookId, shelfId) => {
+// export const deleteBookshelfMembership = (bookId, shelfId) => {
+//   return $.ajax({
+//     method: 'DELETE',
+//     url: `/api/bookshelf_memberships/:id`,
+//     data: { book_id: bookId, bookshelf_id: shelfId }
+//   });
+// };
+
+export const deleteBookshelfMembership = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/bookshelf_memberships/:id`,
-    data: { book_id: bookId, bookshelf_id: shelfId }
+    url: `/api/bookshelf_memberships/${id}`
   });
 };
-
-// $.ajax({
-//   method: 'DELETE',
-//   url: `/api/books/55/bookshelf_memberships/5`
-// });
-
 
 // export const getBookshelfMembership = (id) => {
 //   return $.ajax({
