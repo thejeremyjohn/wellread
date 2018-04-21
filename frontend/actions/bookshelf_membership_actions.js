@@ -9,6 +9,11 @@ export const START_LOADING_BOOKSHELF_MEMBERSHIP = 'START_LOADING_BOOKSHELF_MEMBE
 
 import {requestBookshelves} from './bookshelf_actions';
 
+export const CLEAR_BOOKSHELF_MEMBERSHIPS = 'CLEAR_BOOKSHELF_MEMBERSHIPS';
+export const clearBookshelfMemberships = () => ({
+  type: CLEAR_BOOKSHELF_MEMBERSHIPS,
+});
+
 
 export const receiveBookshelfMembership = (bookshelfMembership) => ({
   type: RECEIVE_BOOKSHELF_MEMBERSHIP,

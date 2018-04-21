@@ -11,6 +11,7 @@ class BookShow extends React.Component {
   componentDidMount() {
     this.props.requestBook(this.props.match.params.bookId);
     this.props.requestBookshelves(this.props.currentUserId);
+    this.props.fetchBookshelfMemberships(this.props.match.params.bookId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -18,9 +19,10 @@ class BookShow extends React.Component {
       this.props.requestBook(nextProps.match.params.bookId);
     }
   }
-  // componentWillUnmount() {
+  componentWillUnmount() {
   //   document.removeEventListener('mousedown', this.toggleShelfMenu);
-  // }
+    this.props.clearBook();
+  }
 
   toggleDescriptionLen() {
     $('.book-description').toggleClass('height-inherit');
@@ -42,23 +44,43 @@ class BookShow extends React.Component {
     const {
       loadingBook, book,
       loadingBookshelves, bookshelves,
+      loadingMemberships, memberships,
       errors
     } = this.props;
 
-    if (loadingBook || loadingBookshelves) {
+    if ( loadingBook || loadingBookshelves || loadingMemberships ) {
       return <div>Loading book...</div>;
     }
 
-    if (book && bookshelves) {
-      const userBookshelfIds = bookshelves.map(b => b.id);
-      const shelfMenu = bookshelves.map(shelf => (
+    if (book && bookshelves && memberships) {
+      // const userBookshelfIds = bookshelves.map(b => b.id);
+      // const shelfMenu = bookshelves.map(shelf => (
+      //   <ShelfMenu
+      //     key={shelf.id}
+      //     book={book}
+      //     shelf={shelf}
+      //     userBookshelfIds={userBookshelfIds}
+      //     />
+      // ));
+      const shelfMenuInitialState = {};
+      bookshelves.forEach(bookshelf => {
+        shelfMenuInitialState[bookshelf.id] = false;
+      });
+      const membershipByShelfId = {};
+      book.bookshelf_memberships.forEach(membership => {
+      // memberships.forEach(membership => {
+        membershipByShelfId[membership.bookshelf_id] = membership.id;
+        shelfMenuInitialState[membership.bookshelf_id] = true;
+      });
+      shelfMenuInitialState['membershipByShelfId'] = membershipByShelfId;
+
+      const shelfMenu =
         <ShelfMenu
-          key={shelf.id}
           book={book}
-          shelf={shelf}
-          userBookshelfIds={userBookshelfIds}
-          />
-      ));
+          shelves={bookshelves}
+          state={shelfMenuInitialState}
+          memberships={memberships}
+          />;
 
       return (
         <div className='book-show-outer'>

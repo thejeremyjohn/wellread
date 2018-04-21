@@ -28,6 +28,7 @@ const App = () => (
 
         <div className='content-middle'>
 
+          <Route path='/' render={() => <div>Home</div>} />
           <Switch>
             <AuthRoute path='/signup' exact component={SessionFormContainer} />
             <AuthRoute path='/signin' exact component={SessionFormContainer} />

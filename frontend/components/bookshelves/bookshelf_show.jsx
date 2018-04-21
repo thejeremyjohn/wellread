@@ -39,8 +39,8 @@ class BookshelfShow extends React.Component {
 
     if (bookshelf) {
       if (bookshelf.books) {
-        const books = bookshelf.books.map((book, i) => (
-          <BookIndexItem key={i} book={book} />
+        const books = bookshelf.books.map((book) => (
+          <BookIndexItem key={book.id} book={book} />
         ));
 
         return (

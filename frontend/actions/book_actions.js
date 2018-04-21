@@ -7,6 +7,10 @@ export const START_LOADING_BOOKS = 'START_LOADING_BOOKS';
 export const RECEIVE_BOOK_ERRORS = 'RECEIVE_BOOK_ERRORS';
 export const CLEAR_BOOK_ERRORS = 'CLEAR_BOOK_ERRORS';
 
+export const CLEAR_BOOK = 'CLEAR_BOOK';
+export const clearBook = () => ({
+  type: CLEAR_BOOK,
+});
 
 export const receiveBook = (book) => ({
   type: RECEIVE_BOOK,

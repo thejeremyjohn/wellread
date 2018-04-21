@@ -2,11 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
 import {
-  createBookshelfMembership, deleteBookshelfMembership
+  clearBookshelfMemberships,
+  fetchBookshelfMemberships,
+  createBookshelfMembership,
+  deleteBookshelfMembership
 } from '../../actions/bookshelf_membership_actions';
+import { clearBookshelves } from '../../actions/bookshelf_actions';
+
 
 const mdp = (dispatch) => {
   return{
+    clearBookshelfMemberships: () => dispatch(clearBookshelfMemberships()),
+
+    fetchBookshelfMemberships: (bookId) => (
+      dispatch(fetchBookshelfMemberships(bookId))
+    ),
     createBookshelfMembership: (shelfMembership) => (
       dispatch(createBookshelfMembership(shelfMembership))
     ),
@@ -15,36 +25,31 @@ const mdp = (dispatch) => {
     // )
     deleteBookshelfMembership: (membershipId) => (
       dispatch(deleteBookshelfMembership(membershipId))
-    )
+    ),
+    clearBookshelves: () => dispatch(clearBookshelves())
   };
 };
 
 class ShelfMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    // default unchecked for all of the user's bookshelves
-    props.userBookshelfIds.forEach(bookshelfId => {
-      this.state[bookshelfId] = false;
-    });
-    // checked for all of the book's bookshelves (i.e. memberships)
-
-    const membershipByShelfId = {};
-    props.book.bookshelf_memberships.forEach(membership => {
-      membershipByShelfId[membership.bookshelf_id] = membership.id;
-      this.state[membership.bookshelf_id] = true;
-    });
-    this.state['membershipByShelfId'] = membershipByShelfId;
-    // debugger
-
-    // props.book.bookshelf_ids.forEach(id => {
-    //   this.state[id] = true;
-    // });
-    // debugger
+    this.state = this.props.state;
     this.handleShelfMembership = this.handleShelfMembership.bind(this);
   }
 
+  componentWillMount() {
+    console.log('shelfMenu mounted');
+    // this.props.fetchBookshelfMemberships(this.props.book.id);
+  }
+
+  componentWillUnmount() {
+    console.log('shelfMenu unmounted');
+    this.props.clearBookshelves();
+    this.props.clearBookshelfMemberships();
+  }
+
   handleShelfMembership(bookId, shelfId) {
+    // console.log('this happened');
     return (e) => {
       const name = e.target.name;
       const isChecked = e.target.checked;
@@ -54,7 +59,20 @@ class ShelfMenu extends React.Component {
         bookshelf_id: shelfId
       };
       if (isChecked) {
-        this.props.createBookshelfMembership(membership);
+        this.props.createBookshelfMembership(membership).then(
+          () => {
+            // console.log('receivedMemberships below');
+            // console.log(this.props.memberships);
+            this.props.memberships.forEach(receivedMembership => {
+              newState.membershipByShelfId[receivedMembership.bookshelf_id] = receivedMembership.id;
+              newState[receivedMembership.bookshelf_id] = true;
+            });
+            // console.log('CREATEd bookshelfMembership');
+
+          }
+        );
+
+
       } else {
         // this.props.deleteBookshelfMembership(bookId, shelfId);
         this.props.deleteBookshelfMembership(
@@ -68,10 +86,22 @@ class ShelfMenu extends React.Component {
 
   render() {
     // debugger
-    const { shelf, book } = this.props;
+    // const { shelf, book } = this.props;
+    const { shelves, book } = this.props;
     // {book.id + '-->' + shelf.id} <br/>
-    return (
-      <label className='shelf-menu-items-b'>
+    // return (
+    //   <label className='shelf-menu-items-b'>
+    //     <input
+    //       type='checkbox'
+    //       name={shelf.id}
+    //       checked={this.state[shelf.id]}
+    //       onChange={this.handleShelfMembership(book.id, shelf.id)}
+    //     />{shelf.name}
+    //     <br/>
+    //   </label>
+    // );
+    return shelves.map(shelf => (
+      <label className='shelf-menu-items-b' key={shelf.id}>
         <input
           type='checkbox'
           name={shelf.id}
@@ -80,25 +110,11 @@ class ShelfMenu extends React.Component {
         />{shelf.name}
         <br/>
       </label>
-    );
+    ));
   }
 }
 
 export default connect(null, mdp)(ShelfMenu);
 
-// this.addToShelf = this.addToShelf.bind(this);
-
-// addToShelf(bookId, shelfId) {
-//   return (e) => {
-//     this.props.createBookshelfMembership({
-//       book_id: bookId,
-//       bookshelf_id: shelfId
-//     });
-//   };
-// }
-
-// <button
-//   className='shelf-menu-items'
-//   onClick={this.addToShelf(book.id, shelf.id)}
-//   >{shelf.name}
-// </button>
+// const ShelfMenuItem = ({ shelves }) => (
+// );

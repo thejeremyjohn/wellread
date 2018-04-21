@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { requestBook } from '../../actions/book_actions';
+import { clearBook, requestBook } from '../../actions/book_actions';
 import { requestBookshelves } from '../../actions/bookshelf_actions';
+import { fetchBookshelfMemberships } from '../../actions/bookshelf_membership_actions';
 // import {
 //   createBookshelfMembership,
 //   updateBookshelfMembership,
@@ -19,14 +20,21 @@ const msp = (state, ownProps) => {
     loadingBookshelves: state.ui.loading.bookshelves.bookshelfIndexLoading,
     errors: state.errors.book,
 
+    loadingMemberships: state.ui.loading.memberships.membershipsLoading,
+    memberships: Object.values(state.entities.memberships),
+
     currentUserId: state.session.currentUser.id
   };
 };
 
 const mdp = (dispatch, ownProps) => {
   return {
+    clearBook: () => dispatch(clearBook()),
     requestBook: (id) => dispatch(requestBook(id)),
-    requestBookshelves: (userId) => dispatch(requestBookshelves(userId))
+    requestBookshelves: (userId) => dispatch(requestBookshelves(userId)),
+    fetchBookshelfMemberships: (bookId) => (
+      dispatch(fetchBookshelfMemberships(bookId))
+    )
     // createBookshelfMembership: (bookId, bookshelfMembership) => (
     //   dispatch(createBookshelfMembership(bookId, bookshelfMembership))
     // ),

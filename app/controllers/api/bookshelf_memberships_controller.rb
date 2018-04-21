@@ -1,20 +1,8 @@
 class Api::BookshelfMembershipsController < ApplicationController
 
   def index
-    if params[:bookshelf_id]
-      @bookshelf_membership = BookshelfMembership.find_by(
-        book_id: params[:book_id],
-        bookshelf_id: params[:bookshelf_id]
-      )
-      if @bookshelf_membership
-        @bookshelf_membership.destroy!
-      else
-        render json: @user.errors.full_messages, status: 404
-      end
-    else
-      @bookshelf_memberships = current_user.bookshelf_memberships
-        .where(book_id: params[:book_id])
-    end
+    @bookshelf_memberships = current_user.bookshelf_memberships.where(book_id: params[:bookId])
+    # debugger
     # @bookshelf_memberships = BookshelfMembership.joins(:bookshelves)
     #   .where(book_id: params[:book_id])
       # .select(:book_id)

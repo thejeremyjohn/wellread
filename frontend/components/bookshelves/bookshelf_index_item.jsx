@@ -16,8 +16,8 @@ const BookshelfIndexItem = ({ bookshelf, userId, deleteBookshelf, pathname, requ
   const handleDelete = (uId, bookshelfId) => {
     return (e) => {
       deleteBookshelf(uId, bookshelfId);
-      clearBookshelves();
-      requestBookshelves(uId);
+      // clearBookshelves();
+      // requestBookshelves(uId);
     };
   };
   // debugger
