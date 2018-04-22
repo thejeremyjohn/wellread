@@ -323,6 +323,7 @@ input[type="text"] { */
   padding: 10px 4px;
   font-size: 15px;
   margin-bottom: 20px;
+  border: 1px solid rgb(220, 214, 204);
 }
 
 .demo.button {
@@ -389,6 +390,9 @@ input[type="text"] { */
 .landing-page.auth-form {
   justify-content: center;
   width: auto;
+}
+.landing-page.auth-input {
+  border-radius: 3px;
 }
 .landing-page-auth-inner {
   display: flex;

@@ -162,9 +162,9 @@ Book.create(
 # end
 
 User.ids.each do |user_id|
-  # Bookshelf.create(user_id: user_id, name: 'read')
-  # Bookshelf.create(user_id: user_id, name: 'currently reading')
-  # Bookshelf.create(user_id: user_id, name: 'want to read')
+  Bookshelf.create(user_id: user_id, name: 'Read')
+  Bookshelf.create(user_id: user_id, name: 'Currently reading')
+  Bookshelf.create(user_id: user_id, name: 'Want to read')
   3.times do |i|
     Bookshelf.create(user_id: user_id, name: Faker::Book.genre)
   end
