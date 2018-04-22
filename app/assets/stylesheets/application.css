@@ -102,10 +102,10 @@ body {
 }
 
 .howtoposelikethis {
-  filter: sepia(75%);
+  filter: sepia(50%);
   /* filter: sepia(75%) grayscale(25%); */
   border-radius: 10px;
-  border: 5px solid brown;
+  border: 5px solid rgb(125,85,67);
 }
 .width-170 {
   width: 170.094px;
@@ -190,7 +190,7 @@ input[type="submit"] {
 .header-right img {
   margin: 10px 8px;
 }
-.header-temp-signout{
+.header-signout{
   padding: 0;
   border-radius: 50%;
   border: 2px solid rgb(59,42,24);
@@ -198,12 +198,47 @@ input[type="submit"] {
   font-size: 16px;
   width: 50px;
 }
-.header-nav > * {
-}
-.header-nav > *:hover:not(.not-implemented) {
-  /* padding: 0 20px; */
+.header-signout:hover {
   background-color: rgb(56,33,16);
   color: white;
+}
+.header-nav > * {
+}
+/* .header-nav > *:hover:not(.not-implemented) {
+  background-color: rgb(56,33,16);
+  color: white;
+} */
+.header-auth-form {
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header-auth-form > * {
+  /* background-color: green; */
+  width: 120px;
+  padding: 5px;
+  margin: 2px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+.header-auth-input {
+  /* width: 300px; */
+  box-sizing: border-box;
+  /* padding: 10px 4px; */
+  font-size: 13px;
+  border: 1px solid rgb(220, 214, 204);
+  top: 10px;
+}
+.header-button {
+  border: 1px solid rgb(56, 33, 16);
+  background-color: rgb(56, 33, 16);
+  color: rgb(255,255,255);
+  padding: 5px 9px;
+  width: 63px;
+}
+.header-button:hover {
+  background-color: rgb(88,55,31);
 }
 
 .content-outer {
@@ -211,7 +246,7 @@ input[type="submit"] {
   height: auto;
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: rgba(255,255,255,1);
   padding: 65px 0 25px 0;
   /* padding: 0 467.5px 0 467.5px; */
 }
@@ -329,6 +364,41 @@ input[type="text"] { */
   padding: 7px 14px;
   margin: 10px;
   text-align: center;
+}
+
+.slogan {
+  font-size: 70px;
+  text-align: center;
+  color: rgb(125,85,67);
+  /* width: 10px; */
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.background-transparent {
+  background-color: rgba(255,255,255,0);
+}
+.landing-page-container {
+  display: flex;
+  flex-direction: row;
+}
+.landing-page-container-left {
+  display: flex;
+  flex-direction: column;
+}
+.landing-page.auth-form {
+  justify-content: center;
+  width: auto;
+}
+.landing-page-auth-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.landing-page.errors-list {
+  width: auto;
 }
 
 table {

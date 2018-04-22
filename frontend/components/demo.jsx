@@ -5,7 +5,7 @@ import { signin } from '../actions/session_actions';
 const msp = (state) => {
   return {
     loggedIn: Boolean(state.session.currentUser),
-    demo: { username: 'demo', password: 'password' }
+    demouser: { username: 'DemoUser', password: 'password' }
   };
 };
 
@@ -17,12 +17,12 @@ const mdp = (dispatch) => {
 
 class Demo extends React.Component {
   render() {
-    const { loggedIn, signIn, demo } = this.props;
+    const { loggedIn, signIn, demouser } = this.props;
     if (!loggedIn) {
       return (
         <button
           className='demo button'
-          onClick={() => signIn(demo)}
+          onClick={() => signIn(demouser)}
           >DEMO
         </button>
       );

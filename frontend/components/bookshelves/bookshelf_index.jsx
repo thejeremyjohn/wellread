@@ -11,13 +11,8 @@ class BookshelfIndex extends React.Component {
   }
 
   componentDidMount() {
-    console.log('bookshelfIndex mounted');
     this.props.requestBookshelves(this.props.match.params.userId);
   }
-
-  // componentWillUnmount() {
-  //   debugger
-  // }
 
   updateShelfName(e) {
     this.setState({ shelfName: e.target.value });

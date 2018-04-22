@@ -13,7 +13,7 @@ Book.destroy_all
 Bookshelf.destroy_all
 BookshelfMembership.destroy_all
 
-User.create(username: 'demo', password: 'password')
+User.create(username: 'DemoUser', password: 'password')
 
 Book.create(
   title: 'Animal Farm',
@@ -148,26 +148,25 @@ Book.create(
   img_url: 'https://images.gr-assets.com/books/1420003664l/30474.jpg'
  )
 
-21.times do |i|
-  book = Faker::Book
-  description = []
-    3.times { |i| description.push Faker::Lorem.paragraph(sentence_count=9) }
-    description = description.join("\n\n")
-  Book.create(
-    title: book.title,
-    author: book.author,
-    description: description,
-    img_url: 'https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg'
-  )
-end
-# img_url: 'http://s2.quickmeme.com/img/34/347d80261f3d0cbcc382ed45c68a0bc5910e3c04280ae116f2e02d29e2bef5fc.jpg'
+# 21.times do |i|
+#   book = Faker::Book
+#   description = []
+#     3.times { |i| description.push Faker::Lorem.paragraph(sentence_count=9) }
+#     description = description.join("\n\n")
+#   Book.create(
+#     title: book.title,
+#     author: book.author,
+#     description: description,
+#     img_url: 'https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg'
+#   )
+# end
 
 User.ids.each do |user_id|
-  Bookshelf.create(user_id: user_id, name: 'read')
-  Bookshelf.create(user_id: user_id, name: 'currently reading')
-  Bookshelf.create(user_id: user_id, name: 'want to read')
-  2.times do |i|
-    Bookshelf.create(user_id: user_id, name: Faker::StarTrek.specie)
+  # Bookshelf.create(user_id: user_id, name: 'read')
+  # Bookshelf.create(user_id: user_id, name: 'currently reading')
+  # Bookshelf.create(user_id: user_id, name: 'want to read')
+  3.times do |i|
+    Bookshelf.create(user_id: user_id, name: Faker::Book.genre)
   end
 end
 

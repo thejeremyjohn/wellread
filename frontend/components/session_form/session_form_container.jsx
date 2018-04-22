@@ -29,7 +29,7 @@ const mdp = (dispatch, ownProps) => {
       altTitle: 'Sign In'
     };
   return {
-    processForm: (user) => (
+    submitAuth: (user) => (
       dispatch(authProps.action(user))
     ),
     clearErrors: () => dispatch(clearErrors()),

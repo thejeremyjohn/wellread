@@ -10,6 +10,7 @@ import BookshelfShowContainer from './bookshelves/bookshelf_show_container';
 import BookshelfIndexContainer from './bookshelves/bookshelf_index_container';
 
 import Header from './header';
+// <Route path='/' render={() => <div>Meet your next favorite book.</div>} />
 
 const App = () => (
   <div>
@@ -27,14 +28,13 @@ const App = () => (
         </div>
 
         <div className='content-middle'>
+          <Route path='/' exact component={GreetingContainer} />
 
-          <Route path='/' render={() => <div>Home</div>} />
           <Switch>
             <AuthRoute path='/signup' exact component={SessionFormContainer} />
             <AuthRoute path='/signin' exact component={SessionFormContainer} />
           </Switch>
 
-          <ProtectedRoute path='/' exact component={GreetingContainer} />
           <ProtectedRoute path='/users/:userId/bookshelves' exact component={GreetingContainer} />
           <ProtectedRoute path='/books' exact component={BookIndexContainer} />
           <ProtectedRoute path='/books/:bookId' component={BookShowContainer} />
