@@ -5,16 +5,35 @@ import BookIndexItem from './book_index_item';
 
 class BookIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { query: '' };
+  }
+
   componentDidMount() {
     this.props.requestBooks();
+  }
+
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   render() {
     const { loading, books } = this.props;
 
-    const bookIndex = books.map(book => (
-      <BookIndexItem key={book.id} book={book} />
-    ));
+    const bookIndex = books
+      .filter(book => (
+        book.title.toLowerCase()
+          .indexOf(this.state.query.toLowerCase()) !== -1
+        ||
+        book.author.toLowerCase()
+          .indexOf(this.state.query.toLowerCase()) !== -1
+      ))
+      .map(book => (
+        <BookIndexItem key={book.id} book={book} />
+      ));
 
     if (loading) {
       return <div>Loading book index...</div>;
@@ -22,6 +41,15 @@ class BookIndex extends React.Component {
 
     return (
       <section>
+        <label for="filter-query">filter by title OR author: </label>
+        <input
+          id='filter-query'
+          value={this.state.query}
+          type="text"
+          onChange={this.update('query')}
+          autofocus
+          />
+
         <table>
           <thead>
             <tr>
