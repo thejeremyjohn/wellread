@@ -24,8 +24,7 @@
   - `id`
   - `rating`
   - `body`
-  - `user_id`
-  - `book_id`
+  - `bookshelf_membership_id`
   - `created_at`
   - `updated_at`
 

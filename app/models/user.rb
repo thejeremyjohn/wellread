@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :books, through: :bookshelves
   has_many :bookshelf_memberships, through: :bookshelves
 
+  has_many :reviews, through: :bookshelf_memberships
+
   after_initialize :ensure_session_token
   attr_reader :password
 

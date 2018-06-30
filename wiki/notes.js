@@ -24,36 +24,7 @@ TODO
   - maybe bookshelves mspd on bookshelf#show w/ a conditional somewhere to
     iterate over them and render them all
 
-UUUGGGHHHH DELETING BOOKSHELF MEMBERSHIPS
-- we can get bookshelf_memberships of the user (by association)
-- we need the bookshelf memberships id in order to delete it,
-- currently working by finding by book_id and shelf_id, but theres an uncaught error
----------SELECTORS !?!?!?!?!
-
-
-so i can do an active record query like this:
-Bookshelf.joins(:bookshelf_memberships).where("book_id = ?", 300)
-
-i want all the bookshelves belonging to a user and all of bookshelfMemberships of those bookshelves
-
-// this is not returning book_ids
-Bookshelf.find_by_sql(<<-SQL)
-  SELECT
-    bookshelves.*, bookshelf_memberships.book_id
-  FROM
-    bookshelves
-    JOIN bookshelf_memberships
-    ON bookshelves.id = bookshelf_memberships.bookshelf_id
-SQL
-
-
-DELETING BOOKSHELVES
-somehow a key of undefined is ending up in my bookshelves state. It contains all the bookshelves from earlier
-
-
-
-QUESIONS
-
+- destroying a bookshelf_membership should also destroy a review if one exists
 
 
 NEW COMOPONENT CHECKLIST
