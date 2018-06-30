@@ -3,6 +3,5 @@ class BookshelfMembership < ApplicationRecord
 
   belongs_to :book
   belongs_to :bookshelf
-
   has_one :review
 end

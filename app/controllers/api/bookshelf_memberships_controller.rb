@@ -1,7 +1,8 @@
 class Api::BookshelfMembershipsController < ApplicationController
 
   def index
-    @bookshelf_memberships = current_user.bookshelf_memberships.where(book_id: params[:bookId])
+    @bookshelf_memberships = current_user.bookshelf_memberships
+      .where(book_id: params[:bookId])
     # debugger
     # @bookshelf_memberships = BookshelfMembership.joins(:bookshelves)
     #   .where(book_id: params[:book_id])
