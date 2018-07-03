@@ -5,6 +5,10 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
+    # if book does not belong to current user bookshelf,
+    #   find the current user read shelf
+    #   add membership
+
     @review = Review.new(review_params)
     if @review.save
       render 'api/reviews/show'
