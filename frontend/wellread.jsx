@@ -12,6 +12,7 @@ import * as sessionActions from './actions/session_actions';
 // import * as bookActions from './actions/book_actions';
 import * as bookshelfActions from './actions/bookshelf_actions';
 import * as bookshelfMembershipActions from './actions/bookshelf_membership_actions';
+import * as reviewActions from './actions/review_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.bookActions = bookActions;
   window.bookshelfActions = bookshelfActions;
   window.bookshelfMembershipActions = bookshelfMembershipActions;
+  window.reviewActions = reviewActions;
   window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
