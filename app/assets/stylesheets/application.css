@@ -608,3 +608,16 @@ td {
   height: 15px;
   width: 100px;
 }
+
+.icon {
+  height: 50px;
+  width: 50px;
+  /* background-color: orange; */
+}
+
+#links a {
+  display: inline-block;
+  color: grey;
+  padding: 10px;
+  margin: 10px;
+}
