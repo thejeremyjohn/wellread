@@ -51,18 +51,10 @@ const App = () => (
 
     <div id="links">
       <a target="_blank" href="https://github.com/thejeremyjohn">
-        <img
-          className="icon"
-          src={'https://imgur.com/ZikpOlP'}
-          alt="Github">
-        </img>
+        Github
       </a>
       <a target="_blank" href="https://www.linkedin.com/in/jeremy-john-60a511131/">
-        <img
-          className="icon"
-          src={'https://imgur.com/SlULLx7'}
-          alt="LinkedIn" >
-        </img>
+        LinkedIn
       </a>
     </div>
 
