@@ -56,6 +56,9 @@ const App = () => (
       <a target="_blank" href="https://www.linkedin.com/in/jeremy-john-60a511131/">
         LinkedIn
       </a>
+      <a target="_blank" href="http://jeremyjohn.me">
+        Portfolio
+      </a>
     </div>
 
   </div>
