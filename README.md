@@ -1,4 +1,5 @@
-<img src="https://i.imgur.com/WRhUnSb.png" />
+[![Wellread](https://i.imgur.com/WRhUnSb.png)](https://wellread0.herokuapp.com)
+
 An early stage clone of the site Goodreads, wellread is platform for organizing and discovering books. Backend development of wellread relies on Ruby on Rails with a Postgresql database, while the frontend uses React Redux. 
 
 ### Key Features
