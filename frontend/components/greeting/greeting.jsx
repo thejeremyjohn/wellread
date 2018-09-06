@@ -59,7 +59,6 @@ export default class Greeting extends React.Component {
         </div>
       );
     } else {
-        // $('.content-outer').addClass('background-transparent');
 
       return (
         <div className='landing-page-container'>
