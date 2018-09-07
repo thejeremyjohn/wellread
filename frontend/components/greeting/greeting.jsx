@@ -46,7 +46,6 @@ export default class Greeting extends React.Component {
     const { logout, currentUser } = this.props;
 
     if ( currentUser ) {
-      // $('.content-left').addClass('width-170');
       // $('.content-outer').removeClass('background-transparent');
 
       return (
