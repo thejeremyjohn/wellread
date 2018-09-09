@@ -47,7 +47,6 @@ export default class Greeting extends React.Component {
 
     if ( currentUser ) {
       // $('.content-outer').removeClass('background-transparent');
-
       return (
         <div>
           <h3>Well met, { currentUser.username }! Here's some recommended reading:</h3>
