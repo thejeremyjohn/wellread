@@ -1,6 +1,6 @@
 [![Wellread](https://i.imgur.com/WRhUnSb.png)](https://wellread0.herokuapp.com)
 
-An early stage clone of the site Goodreads, wellread is platform for organizing and discovering books. Backend development of wellread relies on Ruby on Rails with a Postgresql database, while the frontend uses React Redux. 
+An early stage clone of the site Goodreads, wellread is platform for organizing and discovering books. Backend development of wellread relies on Ruby on Rails with a Postgresql database, while the frontend uses React Redux.
 
 ### Key Features
 - Hosted on Heroku
@@ -13,11 +13,11 @@ Find the live site here:
 [https://wellread0.herokuapp.com](https://wellread0.herokuapp.com)
 
 ### User Auth
-Users can securely signin in or signup through the form on the landing page. A DEMO login button is also provided.
+Users can securely signin or signup through the form on the landing page. A DEMO login button is also provided.
 <img src="https://i.imgur.com/3HaZY2b.png?1" />
 
 ### Books
-The site is preloaded with collection of books. Users can view all of the available books by clicking `Browse`. 
+The site is preloaded with collection of books. Users can view all of the available books by clicking `Browse`.
 <img src="https://i.imgur.com/qMltUHT.png" />
 
 Clicking the cover image or title of a book allows the user to see more details and provides an opportunity to edit that book's shelf membership.

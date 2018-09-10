@@ -15,7 +15,6 @@ export default class Greeting extends React.Component {
   // }
   //
   // componentWillUnmount() {
-  //   console.log('yaaaaaass?');
   //   $('.content-outer').removeClass('background-transparent');
   // }
 
