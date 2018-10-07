@@ -33,7 +33,7 @@ class BookshelfIndex extends React.Component {
       return <div>Loading bookshelf index...</div>;
     }
 
-    const bookshelves = this.props.bookshelves.map(bookshelf => (
+    let bookshelves = this.props.bookshelves.map(bookshelf => (
       <BookshelfIndexItem
         key={bookshelf.id}
         bookshelf={bookshelf}
@@ -44,37 +44,18 @@ class BookshelfIndex extends React.Component {
         pathname={this.props.history.location.pathname}
       />
     ));
+    bookshelves = bookshelves.length>0 ? bookshelves : <p>NO BOOKSHELVES</p>
 
-    if (bookshelves.length===0) return (
-      <ul className='errors-list'><li>NO BOOKSHELVES</li></ul>
-    );
-
-    // <button
-    //   onClick={this.handleCreate(
-    //     this.props.match.params.userId,
-    //     'test'
-    //   )}
-    //   >add
-    // </button>
     return (
       <ul className='bookshelf-index'>
         <h3 className='bookshelf-index-header'>Bookshelves</h3>
         {bookshelves}
-
-        <form onSubmit={this.handleCreate(
-          this.props.match.params.userId,
-          this.state.shelfName
-          )}>
-          <input
-            className='add-shelf-text'
-            type="text"
+        <form onSubmit={this.handleCreate(this.props.match.params.userId, this.state.shelfName)}>
+          <input className='add-shelf-text' type="text"
             value={this.state.shelfName}
             onChange={this.updateShelfName.bind(this)}
-          />
-          <input
-            type='submit'
-            value='add'
-          />
+            />
+          <input type='submit' value='add' />
         </form>
       </ul>
     );
