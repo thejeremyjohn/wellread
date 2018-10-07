@@ -37,19 +37,12 @@ class ShelfMenu extends React.Component {
     this.handleShelfMembership = this.handleShelfMembership.bind(this);
   }
 
-  componentWillMount() {
-    console.log('shelfMenu mounted');
-    // this.props.fetchBookshelfMemberships(this.props.book.id);
-  }
-
   componentWillUnmount() {
-    console.log('shelfMenu unmounted');
     this.props.clearBookshelves();
     this.props.clearBookshelfMemberships();
   }
 
   handleShelfMembership(bookId, shelfId) {
-    // console.log('this happened');
     return (e) => {
       const name = e.target.name;
       const isChecked = e.target.checked;
@@ -61,14 +54,10 @@ class ShelfMenu extends React.Component {
       if (isChecked) {
         this.props.createBookshelfMembership(membership).then(
           () => {
-            // console.log('receivedMemberships below');
-            // console.log(this.props.memberships);
             this.props.memberships.forEach(receivedMembership => {
               newState.membershipByShelfId[receivedMembership.bookshelf_id] = receivedMembership.id;
               newState[receivedMembership.bookshelf_id] = true;
             });
-            // console.log('CREATEd bookshelfMembership');
-
           }
         );
 
@@ -85,21 +74,7 @@ class ShelfMenu extends React.Component {
   }
 
   render() {
-    // debugger
-    // const { shelf, book } = this.props;
     const { shelves, book } = this.props;
-    // {book.id + '-->' + shelf.id} <br/>
-    // return (
-    //   <label className='shelf-menu-items-b'>
-    //     <input
-    //       type='checkbox'
-    //       name={shelf.id}
-    //       checked={this.state[shelf.id]}
-    //       onChange={this.handleShelfMembership(book.id, shelf.id)}
-    //     />{shelf.name}
-    //     <br/>
-    //   </label>
-    // );
     return shelves.map(shelf => (
       <label className='shelf-menu-items-b' key={shelf.id}>
         <input
@@ -115,6 +90,3 @@ class ShelfMenu extends React.Component {
 }
 
 export default connect(null, mdp)(ShelfMenu);
-
-// const ShelfMenuItem = ({ shelves }) => (
-// );
